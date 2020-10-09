@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MultdimArraysSixteenthTask {
     public static void main(String[] args) {
-        magicSquare(4);
+        magicSquare(8);
     }
 
     public static void magicSquare(int n) {
@@ -16,10 +16,6 @@ public class MultdimArraysSixteenthTask {
             zeroI = 0;
             zeroJ = halfSquare;
             fillSquare(magicarr, 0, n * n, zeroI, zeroJ, 0, n, n, n);
-            for (int[] elem : magicarr) {
-                System.out.println(Arrays.toString(elem));
-            }
-
 
         //Квадрат порядка одинарной точности
         }else if( n % 4 != 0 && n != 2 && n % 2 == 0 ) {
@@ -46,9 +42,6 @@ public class MultdimArraysSixteenthTask {
                     zeroJ = quaterSquare;
                     fillSquare(magicarr, i - range, i , zeroI, zeroJ, halfSquare, halfSquare, halfSquare, halfSquare);
                 }
-            }
-            for (int[] elem: magicarr){
-                System.out.println(Arrays.toString(elem));
             }
             //Квадрат порядка двойной точности
         }else {
