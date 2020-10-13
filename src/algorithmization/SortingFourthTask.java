@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SortingFourthTask {
     public static void main(String[] args) {
-        int[] arr = {-5, -4, -3, 0, 1, 2, 4, 6, 7};
+        int[] arr = {-6, 5, 0, 0, -8, 7, 22, 8, 34, 6, 8, 13, -43, 76, 34};
         System.out.println(Arrays.toString(exchangesSort(arr)));
     }
     public static int[] exchangesSort(int[] arr){
