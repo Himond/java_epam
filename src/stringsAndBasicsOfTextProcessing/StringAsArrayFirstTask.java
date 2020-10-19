@@ -3,9 +3,8 @@ package stringsAndBasicsOfTextProcessing;
 public class StringAsArrayFirstTask {
     public static void main(String[] args) {
         String[] str = {"variableNewA", "variableNewB", "variableNewC"};
-        str = toSnakeCase(str);
-        for (int i = 0; i < str.length; i++) {
-            System.out.println(str[i]);
+        for (String s : toSnakeCase(str)) {
+            System.out.println(s);
         }
     }
     public static String[] toSnakeCase(String[] str){
