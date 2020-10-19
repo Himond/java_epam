@@ -13,7 +13,7 @@ public class StringAsArrayFirstTask {
             for (int j = 0; j < str[i].length(); j++) {
                 if((int)str[i].charAt(j) < 93){
                     newStr += '_';
-                    newStr += (char)(32 + (int)str[i].charAt(j));
+                    newStr += (char)(32 + str[i].charAt(j));
                 }else {
                     newStr += str[i].charAt(j);
                 }
