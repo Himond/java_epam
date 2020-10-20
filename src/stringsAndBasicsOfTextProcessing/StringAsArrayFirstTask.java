@@ -3,11 +3,12 @@ package stringsAndBasicsOfTextProcessing;
 public class StringAsArrayFirstTask {
     public static void main(String[] args) {
         String[] str = {"variableNewA", "variableNewB", "variableNewC"};
-        for (String s : toSnakeCase(str)) {
+        toSnakeCase(str);
+        for (String s : str) {
             System.out.println(s);
         }
     }
-    public static String[] toSnakeCase(String[] str){
+    public static void toSnakeCase(String[] str){
         for (int i = 0; i < str.length; i++) {
             String newStr = "";
             for (int j = 0; j < str[i].length(); j++) {
@@ -21,6 +22,5 @@ public class StringAsArrayFirstTask {
             str[i] = newStr;
         }
 
-        return str;
     }
 }
