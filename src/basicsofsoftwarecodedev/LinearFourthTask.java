@@ -1,4 +1,4 @@
-package basicsOfSoftwareCodeDevelopment;
+package basicsofsoftwarecodedev;
 
 public class LinearFourthTask {
     public static void main(String[] args) {

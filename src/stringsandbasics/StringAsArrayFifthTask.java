@@ -1,4 +1,4 @@
-package stringsAndBasicsOfTextProcessing;
+package stringsandbasics;
 
 public class StringAsArrayFifthTask {
     public static void main(String[] args) {

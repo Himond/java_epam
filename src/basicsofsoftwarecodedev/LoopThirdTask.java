@@ -1,4 +1,4 @@
-package basicsOfSoftwareCodeDevelopment;
+package basicsofsoftwarecodedev;
 
 /*Функция по нахожднию суммы квадратов первых ста чисел*/
 public class LoopThirdTask {

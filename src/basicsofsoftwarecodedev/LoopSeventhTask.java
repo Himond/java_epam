@@ -1,8 +1,6 @@
-package basicsOfSoftwareCodeDevelopment;
+package basicsofsoftwarecodedev;
 
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class LoopSeventhTask {

@@ -1,4 +1,4 @@
-package basicsOfSoftwareCodeDevelopment;
+package basicsofsoftwarecodedev;
 
 import java.math.BigDecimal;
 public class LoopFourthTask {
