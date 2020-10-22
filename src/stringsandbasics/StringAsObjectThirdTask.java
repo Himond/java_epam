@@ -6,10 +6,8 @@ public class StringAsObjectThirdTask {
         System.out.println(palindrome(word));
     }
     public static boolean palindrome(String str){
-        StringBuilder revstr = new StringBuilder();
-        for (int i = str.length() - 1; i >= 0; i--){
-            revstr.append(str.charAt(i));
-        }
+        StringBuilder revstr = new StringBuilder(str);
+        revstr.reverse();
         return str.equals(revstr.toString());
     }
 }
