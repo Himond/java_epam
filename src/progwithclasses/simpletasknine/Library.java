@@ -35,7 +35,7 @@ public class Library {
         System.arraycopy(books, 0, newbooks, this.books.length, books.length);
         this.books = newbooks;
     }
-
+    //this method deletes the book by the specified title
     public void removeBook(String title){
         boolean flag = false;
         for (Book book: this.books){
@@ -58,7 +58,7 @@ public class Library {
             System.out.println("There is no book with that title in the library");
         }
     }
-
+    //this method returns a list of books by the specified author
     public Book[] booksAuthor(String author){
         int count = 0;
         for (Book book: this.books){
@@ -80,6 +80,7 @@ public class Library {
         return new Book[]{};
     }
 
+    //this method returns a list of books by the specified publisher
     public ArrayList<Book> publishingHouseBooks(String publishing_house){
         ArrayList<Book> list = new ArrayList<>();
         for (Book book: this.books){
@@ -90,6 +91,7 @@ public class Library {
         return list;
     }
 
+    //this method returns a list of books released after the specified year
     public ArrayList<Book> booksReleasedAfter(int year){
         ArrayList<Book> list = new ArrayList<>();
         for (Book book: this.books){
