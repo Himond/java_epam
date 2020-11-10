@@ -16,7 +16,7 @@ public class Customers {
     }
 
     public Customer[] sortBySurname(){
-        Customer[] sortcust = customers.clone();
+        Customer[] sortcust = this.customers.clone();
         Arrays.sort(sortcust, new SortBySurname());
         return sortcust;
     }
@@ -30,8 +30,11 @@ public class Customers {
     }
 
     public Customer[] rangeCardNumber(long lower_limit, long upper_limit){
+        if(lower_limit < 0 || upper_limit < lower_limit){
+            throw new IllegalArgumentException("Invalid range value set");
+        }
         int count = 0;
-        for (Customer cust: customers) {
+        for (Customer cust: this.customers) {
             if(lower_limit < cust.getCard_number() && cust.getCard_number() < upper_limit){
                 count++;
             }
@@ -39,7 +42,7 @@ public class Customers {
         Customer[] custs = new Customer[count];
         if(count != 0){
             int i = 0;
-            for(Customer cust: customers){
+            for(Customer cust: this.customers){
                 if(lower_limit < cust.getCard_number() && cust.getCard_number() < upper_limit){
                     custs[i] = cust;
                     i++;
