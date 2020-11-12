@@ -1,5 +1,8 @@
 package progwithclasses.aggregationandcompositionеtaskone;
 
+/*Создать объект класса Текст, используя классы Предложение, Слово. Методы: дополнить текст,
+вывести на консоль текст, заголовок текста.*/
+
 public class MainText {
     public static void main(String[] args) {
         Word word1 = new Word("giraffes");
