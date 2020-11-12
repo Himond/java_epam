@@ -1,5 +1,8 @@
 package progwithclasses.aggregationandcompositionеtasktwo;
 
+/*Создать объект класса Автомобиль, используя классы Колесо, Двигатель.
+Методы: ехать, заправляться, менять колесо, вывести на консоль марку автомобиля.*/
+
 import java.util.Objects;
 
 public class Wheel {
@@ -12,7 +15,7 @@ public class Wheel {
     private final int LOAD_INDEX;
     private final char SPEED_INDEX;
     private int mileage;
-    private final int MAX_DISTANCE = 20000;
+    private final int MAX_DISTANCE = (int) (20000 * Math.random());
 
     public Wheel(String manufacturer, int width, int height_to_width_ratio, char tire_design, int diameter, int load_index, char speed_index) {
         this.MANUFACTURER = manufacturer;
@@ -91,8 +94,12 @@ public class Wheel {
         if(distance < 0 ){
             throw new IllegalArgumentException();
         }
-        mileage += distance ;
-        return mileage < MAX_DISTANCE;
+        return mileage + distance > MAX_DISTANCE;
+    }
+
+    //tire mileage change method
+    public void tireWear(int distance){
+        this.mileage += distance;
     }
 
 }
