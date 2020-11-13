@@ -1,8 +1,5 @@
 package progwithclasses.aggregationandcompositionеtaskthree;
 
-/*Создать объект класса Государство, используя классы Область, Район, Город.
-Методы: вывести на консоль столицу, количество областей, площадь, областные центры.*/
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -47,6 +44,7 @@ public class City {
         this.city_population += district.getPopulation();
         this.districts = list.toArray(new District[0]);
     }
+
     //City district removing method
     public void removeDistrict(District district) {
         ArrayList<District> list= new ArrayList<>(Arrays.asList(districts));
