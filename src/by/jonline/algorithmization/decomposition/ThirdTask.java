@@ -1,5 +1,6 @@
 package by.jonline.algorithmization.decomposition;
-
+/*Вычислить площадь правильного шестиугольника со стороной а, используя метод вычисления площади
+треугольника.*/
 public class ThirdTask {
     public static void main(String[] args) {
         int a = 12;

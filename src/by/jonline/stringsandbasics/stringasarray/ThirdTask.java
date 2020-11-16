@@ -1,5 +1,5 @@
 package by.jonline.stringsandbasics.stringasarray;
-
+/*В строке найти количество цифр.*/
 public class ThirdTask {
     public static void main(String[] args) {
         String str = "Hello 33 world 34, letter 3, 25, wor5d!";

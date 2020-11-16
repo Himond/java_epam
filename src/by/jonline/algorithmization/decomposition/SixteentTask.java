@@ -1,5 +1,7 @@
 package by.jonline.algorithmization.decomposition;
-
+/*Написать программу, определяющую сумму n - значных чисел, содержащих только нечетные цифры.
+Определить также, сколько четных цифр в найденной сумме. Для решения задачи использовать декомпозицию.
+*/
 public class SixteentTask {
     public static void main(String[] args) {
         SummaOddNum sum = new SummaOddNum(3);

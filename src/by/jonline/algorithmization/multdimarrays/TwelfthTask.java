@@ -1,5 +1,5 @@
 package by.jonline.algorithmization.multdimarrays;
-
+/*Отсортировать строки матрицы по возрастанию и убыванию значений элементов.*/
 import java.util.Arrays;
 
 public class TwelfthTask {

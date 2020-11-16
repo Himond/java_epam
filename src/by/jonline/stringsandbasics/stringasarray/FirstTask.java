@@ -1,5 +1,9 @@
 package by.jonline.stringsandbasics.stringasarray;
 
+/*
+Дан массив названий переменных в camelCase. Преобразовать названия в snake_case.
+ */
+
 public class FirstTask {
     public static void main(String[] args) {
         String[] str = {"variableNewA", "variableNewB", "variableNewC"};

@@ -1,5 +1,5 @@
 package by.jonline.algorithmization.multdimarrays;
-
+/*Отсотрировать стобцы матрицы по возрастанию и убыванию значений эементов.*/
 import java.util.Arrays;
 
 public class ThirteenthTask {

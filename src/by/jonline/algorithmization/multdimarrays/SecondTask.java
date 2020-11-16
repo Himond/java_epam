@@ -1,5 +1,5 @@
 package by.jonline.algorithmization.multdimarrays;
-
+/*Дана квадратная матрица. Вывести на экран элементы, стоящие на диагонали.*/
 public class SecondTask {
     public static void main(String[] args) {
         int[][] squareMat = {{10, 2, 3, 4}, {1, 20, 3, 4}, {1, 2, 30, 4}, {1, 2, 3, 40}};

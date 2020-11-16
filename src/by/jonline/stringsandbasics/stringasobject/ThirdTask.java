@@ -1,5 +1,5 @@
 package by.jonline.stringsandbasics.stringasobject;
-
+/*Проверить, является ли заданное слово палиндромом*/
 public class ThirdTask {
     public static void main(String[] args) {
         String word = "deified";

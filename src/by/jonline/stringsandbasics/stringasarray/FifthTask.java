@@ -1,5 +1,6 @@
 package by.jonline.stringsandbasics.stringasarray;
-
+/* Удалить в строке все лишние пробелы, то есть серии подряд идущих пробелов заменить на одиночные пробелы.
+Крайние пробелы в строке удалить.*/
 public class FifthTask {
     public static void main(String[] args) {
         String str = "  Hello  word,     deeeww      fwef       new   WORD,   good  word...word!   A!     ";

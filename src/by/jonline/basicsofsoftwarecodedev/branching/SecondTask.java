@@ -1,5 +1,5 @@
 package by.jonline.basicsofsoftwarecodedev.branching;
-
+/* Найти max{min(a, b), min(c, d)}.*/
 public class SecondTask {
     public static void main(String[] args) {
         System.out.println(maxOfMin(5, 23.8999,45.32,2));

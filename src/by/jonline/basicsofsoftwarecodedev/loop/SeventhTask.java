@@ -1,5 +1,6 @@
 package by.jonline.basicsofsoftwarecodedev.loop;
-
+/*Для каждого натурального числа в промежутке от m до n вывести все делители, кроме единицы и самого числа.
+m и n вводятся с клавиатуры.*/
 import java.util.Scanner;
 import java.util.TreeSet;
 

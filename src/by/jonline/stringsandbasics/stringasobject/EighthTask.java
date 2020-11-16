@@ -1,5 +1,7 @@
 package by.jonline.stringsandbasics.stringasobject;
-
+/* Вводится строка слов, разделенных пробелами. Найти самое длинное слово и вывести его на экран. Случай, когда самых
+длинных слов может быть несколько, не обрабатывать.
+*/
 import java.util.Scanner;
 
 public class EighthTask {

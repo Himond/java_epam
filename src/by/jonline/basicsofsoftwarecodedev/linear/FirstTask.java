@@ -1,5 +1,5 @@
 package by.jonline.basicsofsoftwarecodedev.linear;
-
+/*Найдите значение функции: z = ( (a – 3 ) * b / 2) + c*/
 public class FirstTask {
     public static void main(String[] args) {
         double a = 7;

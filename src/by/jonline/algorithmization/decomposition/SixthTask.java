@@ -1,5 +1,5 @@
 package by.jonline.algorithmization.decomposition;
-
+/*Написать метод(методы), проверяющий, являются ли данные три числа взаимно простыми.*/
 public class SixthTask {
     public static void main(String[] args) {
         int A = 5;

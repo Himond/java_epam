@@ -1,5 +1,5 @@
 package by.jonline.basicsofsoftwarecodedev.loop;
-
+/* Составить программу нахождения произведения квадратов первых двухсот чисел.*/
 import java.math.BigDecimal;
 public class FourthTask {
     public static void main(String[] args) {

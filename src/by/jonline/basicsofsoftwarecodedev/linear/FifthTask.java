@@ -1,5 +1,7 @@
 package by.jonline.basicsofsoftwarecodedev.linear;
-
+/* Дано натуральное число Т, которое представляет длительность прошедшего времени в секундах. Вывести
+данное значение длительности в часах, минутах и секундах в следующей форме:
+ННч ММмин SSc.*/
 public class FifthTask {
     public static void main(String[] args) {
         int timeofsec = 340983;

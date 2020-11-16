@@ -1,5 +1,5 @@
 package by.jonline.basicsofsoftwarecodedev.loop;
-
+/*. Вычислить значения функции на отрезке [а,b] c шагом h:*/
 public class SecondTask {
     public static void main(String[] args) {
         int a = -5;

@@ -1,5 +1,5 @@
 package by.jonline.basicsofsoftwarecodedev.branching;
-
+/*. Даны три точки А(х1,у1), В(х2,у2) и С(х3,у3). Определить, будут ли они расположены на одной прямой. */
 public class ThirdTask {
     public static void main(String[] args) {
         straightLineEquation(2,2,4,4,-2,-2);

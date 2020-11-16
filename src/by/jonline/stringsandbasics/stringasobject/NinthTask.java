@@ -1,5 +1,6 @@
 package by.jonline.stringsandbasics.stringasobject;
-
+/* Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке. Учитывать только английские
+буквы.*/
 public class NinthTask {
     public static void main(String[] args) {
         String str = "That PAPER is way, way beyond Anything You're LikeLy to be taught at the AcAdEmY.";

@@ -1,5 +1,7 @@
 package by.jonline.algorithmization.onedimensionalarrays;
-
+/*Задана последовательность N вещественных чисел. Вычислить сумму чисел, порядковые номера которых
+являются простыми числами.
+*/
 public class SixthTask {
     public static void main(String[] args) {
         double[] arr = {2.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0};

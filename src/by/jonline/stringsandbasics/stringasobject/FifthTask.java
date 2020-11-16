@@ -1,5 +1,5 @@
 package by.jonline.stringsandbasics.stringasobject;
-
+/*Подсчитать, сколько раз среди символов заданной строки встречается буква “а”.*/
 public class FifthTask {
     public static void main(String[] args) {
         String str = "That paper is way, way beyond Anything you're likely to be taught at the Academy.";

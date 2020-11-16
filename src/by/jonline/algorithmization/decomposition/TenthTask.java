@@ -1,5 +1,7 @@
 package by.jonline.algorithmization.decomposition;
-
+/*Дано натуральное число N. Написать метод(методы) для формирования массива, элементами которого
+являются цифры числа N.
+*/
 import java.util.Arrays;
 
 public class TenthTask {

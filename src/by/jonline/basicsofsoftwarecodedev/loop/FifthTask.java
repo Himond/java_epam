@@ -1,5 +1,7 @@
 package by.jonline.basicsofsoftwarecodedev.loop;
-
+/* Даны числовой ряд и некоторое число е. Найти сумму тех членов ряда, модуль которых больше или равен
+заданному е. Общий член ряда имеет вид:
+*/
 public class FifthTask {
     public static void main(String[] args) {
 

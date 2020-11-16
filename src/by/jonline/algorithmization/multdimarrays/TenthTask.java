@@ -1,4 +1,5 @@
 package by.jonline.algorithmization.multdimarrays;
+/* Найти положительные элементы главной диагонали квадратной матрицы.*/
 
 public class TenthTask {
     public static void main(String[] args) {

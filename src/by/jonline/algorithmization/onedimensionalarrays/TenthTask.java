@@ -1,5 +1,6 @@
 package by.jonline.algorithmization.onedimensionalarrays;
-
+/*Дан целочисленный массив с количеством элементов п. Сжать массив, выбросив из него каждый второй
+элемент (освободившиеся элементы заполнить нулями). Примечание. Дополнительный массив не использовать.*/
 import java.util.Arrays;
 
 public class TenthTask {

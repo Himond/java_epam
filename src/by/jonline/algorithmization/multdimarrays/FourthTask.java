@@ -1,5 +1,6 @@
 package by.jonline.algorithmization.multdimarrays;
-
+/* Сформировать квадратную матрицу порядка n по заданному образцу(n - четное):
+ */
 import java.util.Arrays;
 
 public class FourthTask {

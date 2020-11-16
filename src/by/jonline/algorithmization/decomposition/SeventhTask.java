@@ -1,5 +1,7 @@
 package by.jonline.algorithmization.decomposition;
 
+/*Написать метод(методы) для вычисления суммы факториалов всех нечетных чисел от 1 до 9*/
+
 public class SeventhTask {
     public static void main(String[] args) {
         long num = 9;

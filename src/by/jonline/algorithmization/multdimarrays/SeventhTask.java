@@ -1,5 +1,5 @@
 package by.jonline.algorithmization.multdimarrays;
-
+/*Сформировать квадратную матрицу порядка N по правилу: и подсчитать количество положительных элементов в ней */
 import java.util.Arrays;
 
 public class SeventhTask {

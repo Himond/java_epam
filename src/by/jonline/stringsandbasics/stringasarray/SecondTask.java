@@ -1,5 +1,6 @@
 package by.jonline.stringsandbasics.stringasarray;
-
+/*Замените в строке все вхождения 'word' на 'letter'.
+ */
 public class SecondTask {
     public static void main(String[] args) {
         String str = "Hello word, new WORD, good word.....word!";

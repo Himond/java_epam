@@ -1,5 +1,7 @@
 package by.jonline.basicsofsoftwarecodedev.branching;
-
+/*Заданы размеры А, В прямоугольного отверстия и размеры х, у, z кирпича. Определить, пройдет ли кирпич через
+отверстие.
+*/
 public class FourthTask {
     public static void main(String[] args) {
         brickHole(3, 5, 3, 4, 2);

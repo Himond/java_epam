@@ -1,5 +1,5 @@
 package by.jonline.basicsofsoftwarecodedev.loop;
-
+/*Даны два числа. Определить цифры, входящие в запись как первого так и второго числа*/
 import java.util.HashSet;
 import java.util.Scanner;
 

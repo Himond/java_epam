@@ -1,5 +1,5 @@
 package by.jonline.stringsandbasics.stringasobject;
-
+/* В строке вставить после каждого символа 'a' символ 'b'.*/
 public class SecondTask {
     public static void main(String[] args) {
         String text = "First of all, there are fragments of the original text - words from the author are included here in the archaic language.";

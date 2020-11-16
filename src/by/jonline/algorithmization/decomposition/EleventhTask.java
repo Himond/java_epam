@@ -1,5 +1,6 @@
 package by.jonline.algorithmization.decomposition;
-
+/*Написать метод(методы), определяющий, в каком из данных двух чисел больше цифр.
+ */
 public class EleventhTask {
     public static void main(String[] args) {
         maxNum(2341, 34344);

@@ -1,5 +1,7 @@
 package by.jonline.algorithmization.multdimarrays;
 
+/*Дана матрица. Вывести k-ю строку и p-й столбец матрицы.*/
+
 public class ThirdTask {
     public static void main(String[] args) {
         int [][] multArr = {{10, 5, 3, 14, 15}, {5, 4, 3, 2, 1}, {6, 4, 3, 2, 1}, {17, 4, 2, 5, 10}};

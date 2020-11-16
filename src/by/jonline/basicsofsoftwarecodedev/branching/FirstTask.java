@@ -1,5 +1,7 @@
 package by.jonline.basicsofsoftwarecodedev.branching;
-
+/* Даны два угла треугольника (в градусах). Определить, существует ли такой треугольник, и если да, то будет ли
+он прямоугольным.
+*/
 public class FirstTask {
     public static void main(String[] args) {
         triangle(90, 10);

@@ -1,5 +1,6 @@
 package by.jonline.algorithmization.decomposition;
-
+/*Написать метод(методы) для нахождения наибольшего общего делителя и наименьшего общего кратного двух
+натуральных чисел: (HOK(A,B) = A * B / HOД(A, B))*/
 public class FirstTask {
     public static void main(String[] args) {
         int A = 42;

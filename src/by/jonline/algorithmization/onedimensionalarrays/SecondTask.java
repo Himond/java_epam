@@ -1,5 +1,6 @@
 package by.jonline.algorithmization.onedimensionalarrays;
-
+/*Дана последовательность действительных чисел а1 ,а2 ,..., ап. Заменить все ее члены, большие данного Z, этим
+числом. Подсчитать количество замен*/
 import java.util.Arrays;
 
 public class SecondTask {
