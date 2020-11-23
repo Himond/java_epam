@@ -8,13 +8,10 @@ public class Car {
     private String car_model;
     private Wheel[] wheels;
     private Engine engine;
-    private final int FUEL_TANK_VOLUEM;
-    private int fuel_in_the_tank;
+    private final double FUEL_TANK_VOLUEM;
+    private double fuel_in_the_tank;
 
-    public Car(String car_model, Wheel[] wheels, Engine engine, int fuel_tank_volume) {
-        if(wheels.length != 4){
-            throw new IllegalArgumentException("Wrong number of wheels");
-        }
+    public Car(String car_model, Wheel[] wheels, Engine engine, double fuel_tank_volume) {
         this.car_model = car_model;
         this.wheels = wheels;
         this.engine = engine;
@@ -30,7 +27,7 @@ public class Car {
         return wheels;
     }
 
-    public int getFuel_in_the_tank() {
+    public double getFuel_in_the_tank() {
         return fuel_in_the_tank;
     }
 
@@ -51,41 +48,38 @@ public class Car {
     }
 
     //the method simulates the movement of a car
-    public void run(int distance) throws NotEnoughFuelIinTheTank, HighTireWear {
-        if (fuel_in_the_tank - distance / 100 * engine.getFUEL_CONSUMPTION() <= 0 ){
-            throw new NotEnoughFuelIinTheTank("Not enough fuel in the tank to cover the distance", fuel_in_the_tank);
-        }
+    public int run(int distance) {
         for (int i = 0; i < wheels.length; i++){
             if(wheels[i].checkMileage(distance)){
-                throw new HighTireWear("Tire replacement required", i);
+                System.out.println("Замените колесо номер: " + i);
+                return i + 1;
             }
         }
-        fuel_in_the_tank = fuel_in_the_tank - distance / 100 * engine.getFUEL_CONSUMPTION();
-        for (Wheel wheel : wheels) {
-            wheel.tireWear(distance);
+        for (int mil = 0; mil <= distance; mil++){
+            fuel_in_the_tank = fuel_in_the_tank - 1 / 100.0 * engine.getFUEL_CONSUMPTION();
+            for (Wheel wheel : wheels) {
+                wheel.tireWear(1);
+            }
+            if (fuel_in_the_tank <= 0 ){
+                System.out.println("Недостаточно топлива в баке");
+                return -1;
+            }
         }
-        System.out.println("You have arrived at your destination");
+        return distance;
     }
 
     //the method simulates filling a car
-    public void refuelCar(int volume){
-        System.out.println(fuel_in_the_tank + volume);
-        if (fuel_in_the_tank + volume > FUEL_TANK_VOLUEM){
-            throw new IllegalArgumentException("Fuel overflow");
-        }else {
-            fuel_in_the_tank += volume;
-            System.out.println("Fuel filled! Total fuel: " + getFuel_in_the_tank());
-        }
+    public void refuelCar(){
+        this.fuel_in_the_tank = FUEL_TANK_VOLUEM;
+        System.out.println("Бак заправлен");
     }
+
     //method simulates wheel replacement
     public void wheelChange(int i){
         int num = i - 1;
-        if(num < 0 || num > 3){
-            throw new IllegalArgumentException("Wheel number is set incorrectly");
-        }
         wheels[num] = new Wheel(wheels[num].getManufacturer(), wheels[num].getWidth(), wheels[num].getHeight_to_width_ratio(),
                 wheels[num].getTire_design(), wheels[num].getDiameter(), wheels[num].getLoad_index(), wheels[num].getSpeed_index());
-        System.out.println("Wheel number: " + i + " replaced");
+        System.out.println("Колесо номер: " + num  + " заменено");
     }
 
 }

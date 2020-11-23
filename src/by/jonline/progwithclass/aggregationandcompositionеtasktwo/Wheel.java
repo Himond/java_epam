@@ -91,9 +91,6 @@ public class Wheel {
 
     //the method accumulates wheel wear and returns false if the wheel is worn out
     public boolean checkMileage(int distance){
-        if(distance < 0 ){
-            throw new IllegalArgumentException();
-        }
         return mileage + distance > MAX_DISTANCE;
     }
 
