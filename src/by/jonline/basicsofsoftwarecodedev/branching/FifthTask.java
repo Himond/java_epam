@@ -1,6 +1,7 @@
 package by.jonline.basicsofsoftwarecodedev.branching;
-/* Вычислить значение функции:
- */
+
+/* Вычислить значение функции:*/
+
 public class FifthTask {
     public static void main(String[] args) {
         System.out.println(func(2));
