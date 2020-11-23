@@ -5,29 +5,19 @@ package by.jonline.algorithmization.decomposition;
 
 public class FifteenthTask {
     public static void main(String[] args) {
-        SequenceNum seq = new SequenceNum(2);
-        seq.getSequenceNums();
+        int n_digit = 2;
+        int left;
+        int right;
+        final int TEN = 10;
+
+        left = (int)Math.pow(TEN, n_digit - 1);
+        right = (int)Math.pow(TEN, n_digit);
+
+        getSequenceNums(left, right, n_digit);
 
     }
-}
 
-class SequenceNum{
-
-    private final int n_digit;
-    private final int left;
-    private final int right;
-    private final int TEN = 10;
-
-    public SequenceNum(int n) throws ArithmeticException{
-        if(n <= 0){
-            throw new ArithmeticException("Введите число больше 0");
-        }
-        n_digit = n;
-        left = (int)Math.pow(TEN, n - 1);
-        right = (int)Math.pow(TEN, n);
-    }
-
-    public void getSequenceNums(){
+    public static void getSequenceNums(int left, int right, int n_digit){
         int[] arr;
         StringBuilder s = new StringBuilder();
         for (int i = left; i < right; i++) {
@@ -41,10 +31,10 @@ class SequenceNum{
         }else {
             System.out.println("В "+ n_digit +"-значных числах возрастающими числовыми последовательнастями являются числа: " + s);
         }
-
     }
 
-    private int[] getArrOfNumbers(int N){
+    //метод разбивает число на массив
+    public static int[] getArrOfNumbers(int N){
         int del = 1;
         int lenArr = 0;
         int num = 0;
@@ -61,7 +51,8 @@ class SequenceNum{
         return arr;
     }
 
-    private boolean checkSequenceNums(int[] arr){
+    //метод проверяет представляет ли число возрастающую последовательность
+    public static boolean checkSequenceNums(int[] arr){
         boolean check = true;
         if(arr.length == 1){
             check = false;
@@ -78,4 +69,3 @@ class SequenceNum{
 
 
 }
-

@@ -1,13 +1,16 @@
 package by.jonline.algorithmization.decomposition;
+
 /*Дано натуральное число N. Написать метод(методы) для формирования массива, элементами которого
-являются цифры числа N.
-*/
+являются цифры числа N.*/
+
 import java.util.Arrays;
 
 public class TenthTask {
+
     public static void main(String[] args) {
         System.out.println(Arrays.toString(arrNum(12345678)));
     }
+
     public static int[] arrNum(int N){
         int del = 1;
         int lenArr = 0;

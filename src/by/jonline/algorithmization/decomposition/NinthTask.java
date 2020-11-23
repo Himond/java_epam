@@ -1,7 +1,9 @@
 package by.jonline.algorithmization.decomposition;
+
 /*Даны числа X, Y, Z, Т — длины сторон четырехугольника. Написать метод(методы) вычисления его площади,
 если угол между сторонами длиной X и Y— прямой.
 */
+
 public class NinthTask {
     public static void main(String[] args) {
         System.out.println(areaQuad(4, 6,8, 10));

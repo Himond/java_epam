@@ -1,5 +1,7 @@
 package by.jonline.stringsandbasic.stringasobject;
+
 /*Дан текст (строка). Найдите наибольшее количество подряд идущих пробелов в нем*/
+
 public class FirstTask {
     public static void main(String[] args) {
         String text = "First of all, there are  fragments of the original    text - words from the author are included here inthe archaic language.";

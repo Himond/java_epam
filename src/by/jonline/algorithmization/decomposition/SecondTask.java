@@ -1,12 +1,15 @@
 package by.jonline.algorithmization.decomposition;
-/*Написать метод(методы) для нахождения наибольшего общего делителя четырех натуральных чисел.
- */
+
+/*Написать метод(методы) для нахождения наибольшего общего делителя четырех натуральных чисел. */
+
 public class SecondTask {
     public static void main(String[] args) {
+
         int A = 122;
         int B = 36;
         int C = 8;
         int D = 24;
+
         System.out.println(nod(A, B, C, D));
     }
 

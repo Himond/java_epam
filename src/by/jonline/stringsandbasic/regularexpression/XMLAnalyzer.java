@@ -1,4 +1,5 @@
 package by.jonline.stringsandbasic.regularexpression;
+
 /* Дана строка, содержащая следующий текст (xml-документ):
 <notes>
  <note id = "1">
@@ -17,6 +18,7 @@ package by.jonline.stringsandbasic.regularexpression;
 Напишите анализатор, позволяющий последовательно возвращать содержимое узлов xml-документа и его тип (открывающий
 тег, закрывающий тег, содержимое тега, тег без тела). Пользоваться готовыми парсерами XML для решения данной задачи
 нельзя.*/
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

@@ -4,31 +4,18 @@ package by.jonline.algorithmization.decomposition;
 возведенная в степень n, равна самому числу. Найти все числа Армстронга от 1 до k. Для решения задачи
 использовать декомпозицию.*/
 
+import java.util.Arrays;
+
 public class FourteentTask {
     public static void main(String[] args) {
-        try {
-            ArmstrongNumbers arms = new ArmstrongNumbers(16000);
-            arms.getArmNums();
-        }catch (ArithmeticException e){
-            System.out.println(e.getMessage());
-        }
+        int left = 1;
+        int right = 16000;
+
+        getArmNums(left, right);
 
     }
-}
-class ArmstrongNumbers{
 
-    private final int left;
-    private final int right;
-
-    public ArmstrongNumbers(int k) throws ArithmeticException{
-        if(k < 2){
-            throw new ArithmeticException("Введите число >= 2");
-        }
-        left = 1;
-        right = k;
-    }
-
-    public void getArmNums(){
+    public static void getArmNums(int left, int right){
         int[] arr;
         StringBuilder s = new StringBuilder();
         for (int i = left; i <= right; i++) {
@@ -45,7 +32,8 @@ class ArmstrongNumbers{
 
     }
 
-    private boolean checkArmNums(int[] arr, int num){
+    //метод проверяет является ли число - числом Армстронга
+    public static boolean checkArmNums(int[] arr, int num){
         int sum = 0;
         for (int j : arr) {
             sum += Math.pow(j, arr.length);
@@ -53,10 +41,13 @@ class ArmstrongNumbers{
         return sum == num;
     }
 
-    private int[] getArr(int N){
+    //метод разбивает число на массив
+    public static int[] getArr(int N){
+
         int del = 1;
         int lenArr = 0;
         int num = 0;
+
         do {
             lenArr += 1;
             del *= 10;
@@ -69,6 +60,4 @@ class ArmstrongNumbers{
         }
         return arr;
     }
-
 }
-

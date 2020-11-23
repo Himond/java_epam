@@ -4,6 +4,7 @@ package by.jonline.algorithmization.decomposition;
 
 public class SeventhTask {
     public static void main(String[] args) {
+
         long num = 9;
         long sum = 0;
         for (int i = 1; i <= num; i++) {

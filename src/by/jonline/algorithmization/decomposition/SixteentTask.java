@@ -1,30 +1,26 @@
 package by.jonline.algorithmization.decomposition;
+
 /*Написать программу, определяющую сумму n - значных чисел, содержащих только нечетные цифры.
 Определить также, сколько четных цифр в найденной сумме. Для решения задачи использовать декомпозицию.
 */
+
 public class SixteentTask {
     public static void main(String[] args) {
-        SummaOddNum sum = new SummaOddNum(3);
-        System.out.println(sum.getSumOddNums());
-        System.out.println(sum.getTotalEvenNums());
-    }
-}
 
-class SummaOddNum{
+        int left;
+        int right;
+        int n = 3;
+        final int TEN = 10;
 
-    private final int left;
-    private final int right;
-    private final int TEN = 10;
-
-    public SummaOddNum(int n) throws ArithmeticException{
-        if(n <= 0){
-            throw new ArithmeticException("Введите число больше 0");
-        }
         left = (int)Math.pow(TEN, n - 1);
         right = (int)Math.pow(TEN, n);
+
+        System.out.println(getSumOddNums(left, right));
+        System.out.println(getTotalEvenNums(left, right));
+
     }
 
-    public int getSumOddNums(){
+    public static int getSumOddNums(int left, int right){
         int sum = 0;
         int[] arr;
         for (int i = left; i < right; i++) {
@@ -36,7 +32,7 @@ class SummaOddNum{
         return sum;
     }
 
-    private int[] getArrOfNumbers(int N){
+    public static int[] getArrOfNumbers(int N){
         int del = 1;
         int lenArr = 0;
         int num = 0;
@@ -53,20 +49,20 @@ class SummaOddNum{
         return arr;
     }
 
-    private boolean checkOddNums(int[] arr){
+    public static boolean checkOddNums(int[] arr){
         boolean check = true;
         for (int j : arr) {
             if (j % 2 == 0) {
-            check = false;
-                    break;
+                check = false;
+                break;
             }
         }
         return check;
     }
 
-    public int getTotalEvenNums(){
+    public static int getTotalEvenNums(int left, int right){
         int total = 0;
-        int sum = getSumOddNums();
+        int sum = getSumOddNums(left, right);
         int[] arr = getArrOfNumbers(sum);
         for (int j : arr) {
             if (j % 2 == 0) {
@@ -77,4 +73,3 @@ class SummaOddNum{
     }
 
 }
-
