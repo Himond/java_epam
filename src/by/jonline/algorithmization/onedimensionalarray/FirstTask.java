@@ -1,4 +1,5 @@
 package by.jonline.algorithmization.onedimensionalarray;
+
 /*В массив A [N] занесены натуральные числа. Найти сумму тех элементов, которые кратны данному К.*/
 
 public class FirstTask {

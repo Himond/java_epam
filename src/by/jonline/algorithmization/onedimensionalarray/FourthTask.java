@@ -1,11 +1,12 @@
 package by.jonline.algorithmization.onedimensionalarray;
 
 /* Даны действительные числа а1 ,а2 ,..., аn . Поменять местами наибольший и наименьший элементы.*/
+
 import java.util.Arrays;
 
 public class FourthTask {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 0};
+        int[] arr = {9, 2, 3, 4, 5, 0};
         System.out.println(Arrays.toString(minMax(arr)));
     }
 

@@ -9,19 +9,6 @@ public class ThirteenthTask {
     }
 
     public static void sortArr(int [][] arr) {
-        //Отсортировать строки по возростанию
-        /*for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                for (int k = 0; k < arr[i].length - (j + 1); k++) {
-                    if (arr[i][k] > arr[i][k + 1]) {
-                        int elem = arr[i][k];
-                        arr[i][k] = arr[i][k + 1];
-                        arr[i][k + 1] = elem;
-                    }
-                }
-            }
-        }*/
-
         //Отсортировать столбцы по возростанию
         for (int j = 0; j < arr[0].length; j++) {
             for (int i = 0; i < arr.length; i++) {

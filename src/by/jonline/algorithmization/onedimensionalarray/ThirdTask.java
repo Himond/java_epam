@@ -1,7 +1,9 @@
 package by.jonline.algorithmization.onedimensionalarray;
+
 /*Дан массив действительных чисел, размерность которого N. Подсчитать, сколько в нем отрицательных,
 положительных и нулевых элементов.
 */
+
 public class ThirdTask {
     public static void main(String[] args) {
         int[] arr = {-2, 4, 3, 0, -3, 45, -2, 0, 6, 7, -3, 4, 0, 0, -10};

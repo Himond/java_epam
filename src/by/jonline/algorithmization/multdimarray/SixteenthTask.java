@@ -9,8 +9,7 @@ import java.util.Scanner;
 
 public class SixteenthTask {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
+        int n = inputNum();
         int[][] magicarr = new int[n][n];
         int zeroI, zeroJ;
         int halfSquare = magicarr.length / 2;
@@ -126,5 +125,22 @@ public class SixteenthTask {
         return magicarr;
     }
 
+    public static int inputNum(){
+        int num;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите число: ");
+        while (true){
+            if(scanner.hasNextInt()){
+                num = scanner.nextInt();
+                if (num > 0){
+                    return num;
+                }
+            }else {
+                System.out.println("Введеное значение некоректно: " + scanner.next());
+            }
+            System.out.print("Введите число: ");
+        }
+    }
 
 }

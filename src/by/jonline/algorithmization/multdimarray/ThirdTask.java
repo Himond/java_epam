@@ -10,14 +10,19 @@ public class ThirdTask {
         printArr(multArr, k, p);
     }
     public static void printArr(int[][] arr, int k, int p){
-        System.out.print("row " + k + ": ");
-        for (int elem: arr[k]){
-            System.out.print(elem + " ");
+        if(k >= arr.length || p >= arr[0].length || k < 0 || p < 0){
+            System.out.println("Введенные данные некорректны");
+        }else{
+            System.out.print("row " + k + ": ");
+            for (int elem: arr[k]){
+                System.out.print(elem + " ");
+            }
+            System.out.println();
+            System.out.print("column " + p + ": ");
+            for (int[] ints : arr) {
+                System.out.print(ints[p] + " ");
+            }
         }
-        System.out.println();
-        System.out.print("column " + p + ": ");
-        for (int[] ints : arr) {
-            System.out.print(ints[p] + " ");
-        }
+
     }
 }

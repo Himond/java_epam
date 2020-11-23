@@ -1,6 +1,8 @@
 package by.jonline.algorithmization.onedimensionalarray;
+
 /* Даны действительные числа a1, a2 ... , an Найти
 max( a1 + a2n, a2 + a2n−1, ...,  an + an+1)*/
+
 public class SeventhTask {
     public static void main(String[] args) {
         int[] arr = {-1, -5, 0, -4, -5, 10};

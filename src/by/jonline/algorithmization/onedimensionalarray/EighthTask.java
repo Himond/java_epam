@@ -1,8 +1,10 @@
 package by.jonline.algorithmization.onedimensionalarray;
+
 /*Дана последовательность целых чисел a1, a2, ... ,an 
 . Образовать новую последовательность, выбросив из
 исходной те члены, которые равны
 min( a1, a2, ... ,an )*/
+
 import java.util.Arrays;
 
 public class EighthTask {
@@ -13,7 +15,7 @@ public class EighthTask {
     public static int[] minArr(int[] arr){
         int count = 0;
         int countArr = 0;
-        int min =arr[0];
+        int min = arr[0];
 
         for(int i = 1; i < arr.length; i++){
             min = arr[i] < min ? arr[i] : min;

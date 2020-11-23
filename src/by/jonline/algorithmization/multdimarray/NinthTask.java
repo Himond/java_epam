@@ -12,6 +12,7 @@ public class NinthTask {
         int sumcolumn;
         int maxsum = 0;
         int idmaxsumcolumn = 0;
+
         for (int j = 0; j < arr[0].length; j++) {
             sumcolumn = 0;
             for (int[] ints : arr) {

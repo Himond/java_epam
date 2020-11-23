@@ -1,12 +1,14 @@
 package by.jonline.algorithmization.onedimensionalarray;
+
 /*Дана последовательность действительных чисел а1 ,а2 ,..., ап. Заменить все ее члены, большие данного Z, этим
 числом. Подсчитать количество замен*/
+
 import java.util.Arrays;
 
 public class SecondTask {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int num = 7;
+        int num = 3;
         replase(arr, num);
     }
     public static void replase(int[] arr, int Z){
