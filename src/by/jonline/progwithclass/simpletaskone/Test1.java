@@ -4,24 +4,29 @@ package by.jonline.progwithclass.simpletaskone;
 переменных. Добавьте метод, который находит сумму значений этих переменных, и метод, который находит
 наибольшее значение из этих двух переменных*/
 
-public class Test1<T extends  Number, V extends Number> {
+public class Test1 {
 
-    private T x;
-    private V y;
+    private double x;
+    private double y;
 
-    public T getX() {
+    public Test1(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double getX() {
         return x;
     }
 
-    public void setX(T x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public V getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(V y) {
+    public void setY(double y) {
         this.y = y;
     }
 
@@ -33,24 +38,12 @@ public class Test1<T extends  Number, V extends Number> {
                 '}';
     }
 
-    public void sumXY(){
-        if (this.getX() != null && this.getY() != null){
-            System.out.println(this.getX().doubleValue() + this.getY().doubleValue());
-        }else if(this.getX() == null){
-            System.out.println("Введите X");
-        }else{
-            System.out.println("Введите Y");
-        }
-
+    public double sumXY(){
+        return this.getX() + this.getY();
     }
-    public void maxValue(){
-        if(this.getX() != null && this.getY() != null){
-            System.out.println(Math.max(this.getX().doubleValue(), this.getY().doubleValue()));
-        }else if(this.getX() == null){
-            System.out.println("Введите X");
-        }else{
-            System.out.println("Введите Y");
-        }
+
+    public double maxValue(){
+            return Math.max(this.getX(), this.getY());
 
     }
 

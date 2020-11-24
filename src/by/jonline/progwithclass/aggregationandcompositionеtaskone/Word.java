@@ -3,7 +3,6 @@ package by.jonline.progwithclass.aggregationandcompositionеtaskone;
 /*Создать объект класса Текст, используя классы Предложение, Слово.
 Методы: дополнить текст, вывести на консоль текст, заголовок текста.*/
 
-
 public class Word {
 
     private String word;
@@ -11,7 +10,7 @@ public class Word {
     public Word(String word) {
         for (char ch: word.toCharArray()){
             if((ch > 90  && ch < 97) || ch < 65 || ch > 122){
-                throw new IllegalArgumentException("The word is wrong");
+                System.out.println("The word is wrong");
             }
         }
         this.word = word;
@@ -24,7 +23,7 @@ public class Word {
     public void setWord(String word) {
         for (char ch: word.toCharArray()){
             if((ch > 90  && ch < 97) || ch < 65 || ch > 122){
-                throw new IllegalArgumentException("The word is wrong");
+                System.out.println("The word is wrong");
             }
         }
         this.word = word;

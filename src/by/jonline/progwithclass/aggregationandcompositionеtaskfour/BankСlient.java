@@ -59,12 +59,14 @@ public class BankСlient {
     public void setPassport_id(long passport_id) {
         this.passport_id = passport_id;
     }
+
     //add bank account
     public void addAccount(BankAccount account){
         ArrayList<BankAccount> accounts = new ArrayList<>(Arrays.asList(getAccounts()));
         accounts.add(account);
         this.accounts = accounts.toArray(new BankAccount[0]);
     }
+
     //remove bank account
     public void removeAccount(BankAccount account){
         ArrayList<BankAccount> accounts = new ArrayList<>(Arrays.asList(getAccounts()));

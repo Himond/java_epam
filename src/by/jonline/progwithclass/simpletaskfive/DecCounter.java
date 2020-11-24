@@ -1,4 +1,5 @@
 package by.jonline.progwithclass.simpletaskfive;
+
 /*Опишите класс, реализующий десятичный счетчик, который может увеличивать или уменьшать свое значение на единицу в заданном диапазоне.
 Предусмотрите инициализацию счетчика значениями по умолчанию и произвольными значениями. Счетчик имеет методы увеличения и
 уменьшения состояния, и метод позволяющее получить его текущее состояние.
@@ -7,32 +8,32 @@ package by.jonline.progwithclass.simpletaskfive;
 public class DecCounter {
 
     private int count;
-    public final int LOWER_LIMIT;
-    public final int UPPER_LIMIT;
+    private int lowerLimit;
+    private int upperLimit;
 
     public DecCounter() {
-        UPPER_LIMIT = 10;
-        LOWER_LIMIT = 0;
+        lowerLimit = 0;
+        upperLimit = 10;
     }
 
-    public DecCounter(int count, int lower_limit, int upper_limit) throws RangeSetIncorrectly, ValueIsOutOfRange {
+    public DecCounter(int count, int lower_limit, int upper_limit)  {
         if (lower_limit >= upper_limit){
-            throw new RangeSetIncorrectly("Incorrect range values are set", lower_limit, upper_limit);
+            System.out.println("Введено неверное значения диапазона чисел");
         }else if(count > upper_limit || count < lower_limit){
-            throw new ValueIsOutOfRange("The specified value is out of range", count);
+            System.out.println("Указанное значение счетчика выходит за диапазон чисел");
         }else {
             this.count = count;
-            this.LOWER_LIMIT = lower_limit;
-            this.UPPER_LIMIT = upper_limit;
+            this.lowerLimit = lower_limit;
+            this.upperLimit = upper_limit;
         }
     }
 
     public void increaseCount(){
-        this.count += this.count < UPPER_LIMIT ? 1 : 0;
+        this.count += this.count < upperLimit ? 1 : 0;
     }
 
     public void reduceCount(){
-        this.count -= this.count > LOWER_LIMIT ? 1 : 0;
+        this.count -= this.count > lowerLimit ? 1 : 0;
     }
 
     public int getCount() {
@@ -43,8 +44,8 @@ public class DecCounter {
     public String toString() {
         return "DecCounter{" +
                 "count=" + count +
-                ", LOWER_LIMIT=" + LOWER_LIMIT +
-                ", UPPER_LIMIT=" + UPPER_LIMIT +
+                ", LOWER_LIMIT=" + lowerLimit +
+                ", UPPER_LIMIT=" + upperLimit +
                 '}';
     }
 }

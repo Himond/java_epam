@@ -6,25 +6,20 @@ package by.jonline.progwithclass.simpletaskfive;
 Написать код, демонстрирующий все возможности класса.*/
 
 public class DecCountMain {
-    public static void main(String[] args) throws ValueIsOutOfRange, RangeSetIncorrectly {
+    public static void main(String[] args){
         DecCounter decCounter1 = new DecCounter();
-        try {
-            DecCounter decCounter2 = new DecCounter(5,2, 10);
-            decCounter2.increaseCount();
-            System.out.println(decCounter2.getCount());
-            decCounter2.increaseCount();
-            System.out.println(decCounter2.getCount());
-            decCounter2.reduceCount();
-            decCounter2.reduceCount();
-            decCounter2.reduceCount();
-            System.out.println(decCounter2.getCount());
-            decCounter2.reduceCount();
-            System.out.println(decCounter2.toString());
-        }catch (ValueIsOutOfRange err){
-            System.out.println(err.getMessage() + ": " + err.getCount());
-        }catch (RangeSetIncorrectly err){
-            System.out.println(err.getMessage() + ": " + err.getLower_limit() + " " + err.getUpper_limit());
-        }
+        DecCounter decCounter2 = new DecCounter(5,2, 10);
+        System.out.println(decCounter2.getCount());
+        decCounter2.increaseCount();
+        System.out.println(decCounter2.getCount());
+        decCounter2.increaseCount();
+        System.out.println(decCounter2.getCount());
+        decCounter2.reduceCount();
+        decCounter2.reduceCount();
+        decCounter2.reduceCount();
+        System.out.println(decCounter2.getCount());
+        decCounter2.reduceCount();
+        System.out.println(decCounter2.toString());
 
     }
 }

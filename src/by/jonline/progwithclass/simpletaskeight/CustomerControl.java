@@ -38,7 +38,7 @@ public class CustomerControl {
 
     public Customer[] rangeCardNumber(long lower_limit, long upper_limit){
         if(lower_limit < 0 || upper_limit < lower_limit){
-            throw new IllegalArgumentException("Invalid range value set");
+            System.out.println("Invalid range value set");
         }
         int count = 0;
         for (Customer cust: this.customers) {

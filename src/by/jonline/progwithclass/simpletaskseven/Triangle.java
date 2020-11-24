@@ -5,19 +5,19 @@ package by.jonline.progwithclass.simpletaskseven;
 
 public class Triangle {
 
-    private double[] A;
-    private double[] B;
-    private double[] C;
+    private Point A;
+    private Point B;
+    private Point C;
     private double a;
     private double b;
     private double c;
 
-    public Triangle(double[] A, double[] B, double[] C) {
+    public Triangle(Point A, Point B, Point C) {
         this.a = lengthSide(A, B);
         this.b = lengthSide(B, C);
         this.c = lengthSide(C, A);
         if((a + b == c) || (a + c == b) || (b + c == a)){
-            throw new IllegalArgumentException("The points lie on a straight line");
+            System.out.println("The points lie on a straight line");
         }else {
             this.A = A;
             this.B = B;
@@ -25,20 +25,20 @@ public class Triangle {
         }
     }
 
-    private double lengthSide(double[] A, double[] B){
-        return Math.sqrt(Math.pow(A[0] - B[0], 2) + Math.pow(A[1] - B[1], 2));
+    private double lengthSide(Point A, Point B){
+        return Math.sqrt(Math.pow(A.getX() - B.getX(), 2) + Math.pow(A.getY() - B.getY(), 2));
     }
 
 
-    public double[] getA() {
+    public Point getA() {
         return A;
     }
 
-    public double[] getB() {
+    public Point getB() {
         return B;
     }
 
-    public double[] getC() {
+    public Point getC() {
         return C;
     }
 
@@ -63,19 +63,38 @@ public class Triangle {
         return Math.sqrt(halfPer * (halfPer - a) * (halfPer - b) * (halfPer - c));
     }
 
-    private double[] baseMedian(double[] A, double[] B){
-        return new double[] {(A[0] + B[0]) / 2, (A[1] + B[1]) / 2};
+    private Point baseMedian(Point A, Point B){
+
+        double xM;
+        double yM;
+
+        xM = (A.getX() + B.getX()) / 2;
+        yM = (A.getY() + B.getY()) / 2;
+
+        return new Point(xM, yM);
     }
 
-    public double[] pointMedians(){
-        double[] Mbc = baseMedian(B, C);
-        double[] Mac = baseMedian(A, C);
-        double[][] matrix = {{Mbc[1] - A[1], A[0] - Mbc[0] , A[0] * (Mbc[1] - A[1]) - A[1] * (Mbc[0] - A[0])},{Mac[1] - B[1],
-                B[0] - Mac[0]  , B[0] * (Mac[1] - B[1]) - B[1] * (Mac[0] - B[0])}};
-        double d = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
-        double d1 = matrix[0][2] * matrix[1][1] - matrix[1][2] * matrix[0][1];
-        double d2 = matrix[0][0] * matrix[1][2] - matrix[1][0] * matrix[0][2];
-        return new double[]{d1 / d, d2 / d};
+    public Point pointMedians(){
+
+        Point mBC;
+        Point mAC;
+        double[][] matrix;
+        double d;
+        double d1;
+        double d2;
+
+        mBC = baseMedian(B, C);
+        mAC = baseMedian(A, C);
+
+        matrix = new double[][]{{mBC.getY() - A.getY(), A.getX()- mBC.getX() ,
+                                 A.getX() * (mBC.getY() - A.getY()) - A.getY() * (mBC.getX() - A.getX())},{mAC.getY() - B.getY(),
+                                 B.getX() - mAC.getX(), B.getX() * (mAC.getY() - B.getY()) - B.getY() * (mAC.getX() - B.getX())}};
+
+        d = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+        d1 = matrix[0][2] * matrix[1][1] - matrix[1][2] * matrix[0][1];
+        d2 = matrix[0][0] * matrix[1][2] - matrix[1][0] * matrix[0][2];
+
+        return new Point(d1 / d, d2 / d);
     }
 
 }

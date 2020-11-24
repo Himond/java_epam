@@ -42,31 +42,33 @@ public class BankAccount {
     }
 
     //bank account replenishment
-    public void topUPAccount(double value) throws AccountIsBlocked {
+    public void topUPAccount(double value){
         if(isState_of_account()){
             this.available_balance += value;
         }else {
-            throw new AccountIsBlocked("account is blocked!", ACCOUNT_NUMBER);
+            System.out.println("account is blocked!");
         }
     }
+
     //withdrawing money from an account
-    public void withdrawAccount(double value) throws AccountIsBlocked, InsufficientFunds {
+    public void withdrawAccount(double value){
         if (isState_of_account()){
             if (available_balance > (0 - CREDIT_LIMIT) && (available_balance - value) > (0 - CREDIT_LIMIT)){
                 this.available_balance -= value;
             }else {
-                throw new InsufficientFunds("insufficient funds in the account", available_balance);
+                System.out.println("insufficient funds in the account");
             }
         }else {
-            throw new AccountIsBlocked("account is blocked!", ACCOUNT_NUMBER);
+            System.out.println("account is blocked!");
         }
     }
+
     //account blocking
-    public void blockAccount() throws AccountIsBlocked {
+    public void blockAccount(){
         if(isState_of_account()){
             this.state_of_account = false;
         }else {
-            throw new AccountIsBlocked("account is blocked!", ACCOUNT_NUMBER);
+            System.out.println("account is blocked!");
         }
     }
 

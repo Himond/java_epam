@@ -15,7 +15,7 @@ public class Wheel {
     private final int LOAD_INDEX;
     private final char SPEED_INDEX;
     private int mileage;
-    private final int MAX_DISTANCE = (int) (20000 * Math.random());
+    private final int MAX_DISTANCE = (int) (40000 * Math.random());
 
     public Wheel(String manufacturer, int width, int height_to_width_ratio, char tire_design, int diameter, int load_index, char speed_index) {
         this.MANUFACTURER = manufacturer;

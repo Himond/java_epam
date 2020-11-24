@@ -44,6 +44,7 @@ public class Library {
         System.arraycopy(books, 0, newbooks, this.books.length, books.length);
         this.books = newbooks;
     }
+
     //this method deletes the book by the specified title
     public void removeBook(String title){
         boolean flag = false;
@@ -67,6 +68,7 @@ public class Library {
             System.out.println("There is no book with that title in the library");
         }
     }
+
     //this method returns a list of books by the specified author
     public Book[] booksAuthor(String author){
         int count = 0;

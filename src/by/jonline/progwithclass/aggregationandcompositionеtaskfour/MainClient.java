@@ -7,7 +7,7 @@ package by.jonline.progwithclass.aggregationandcompositionеtaskfour;
 import java.util.Arrays;
 
 public class MainClient {
-    public static void main(String[] args) throws InterruptedException, AccountIsBlocked, InsufficientFunds {
+    public static void main(String[] args) throws InterruptedException {
         BankAccount account1 = new BankAccount(45221256);
         Thread.sleep(1000);
         BankAccount account2 = new BankAccount(43521555);

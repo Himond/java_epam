@@ -16,13 +16,11 @@ public class TimeMain {
             time.changeTime(0, -1, 1);
             System.out.println(time.getTime());
         }
-        try {
-            time.setHours(23);
-            time.setMinutes(23);
-            time.setSeconds(23);
-        }catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        }
+
+        time.setHours(23);
+        time.setMinutes(23);
+        time.setSeconds(23);
+
         System.out.println(time.getTime());
     }
 

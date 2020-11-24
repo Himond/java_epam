@@ -20,8 +20,11 @@ public class MainTours {
                 "Sweden", TypeOfTransport.BUS, TypeOfHotel.HOTEL_3_STARS, TypeOfFood.BREAKFASTS, 7, 6);
         Tour tour6 = new Tour(" Шоп тур в Берлин! +2 экскурсии Познань- Потсдам", TypesOfTours.SHOPPING,
                 "Sweden", TypeOfTransport.AIRPLANE, TypeOfHotel.HOTEL_4_STARS, TypeOfFood.BREAKFASTS, 7, 6);
+
         TourControl tours = new TourControl(new Tour[]{tour1, tour2, tour3, tour4, tour6});
+
         tours.addTour(tour5);
+
         System.out.println(tours.choiceTours(TypesOfTours.SHOPPING));
         System.out.println(Arrays.toString(tours.sortTour()));
         System.out.println(Arrays.toString(tours.sortTourByTransport()));

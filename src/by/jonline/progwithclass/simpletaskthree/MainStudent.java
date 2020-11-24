@@ -1,5 +1,9 @@
 package by.jonline.progwithclass.simpletaskthree;
 
+/* Создайте класс с именем Student, содержащий поля: фамилия и инициалы, номер группы, успеваемость (массив
+из пяти элементов). Создайте массив из десяти элементов такого типа. Добавьте возможность вывода фамилий и
+номеров групп студентов, имеющих оценки, равные только 9 или 10.*/
+
 public class MainStudent {
     public static void main(String[] args) {
         Student student1 = new Student("Петров И.И.", 201, new int[]{4, 6, 7, 5, 8});
@@ -12,7 +16,9 @@ public class MainStudent {
         Student student8 = new Student("Романов А.А.", 180, new int[]{4, 3, 10, 5, 8});
         Student student9 = new Student("Герасимов Е.А.", 201, new int[]{4, 6, 8, 9, 8});
         Student student10 = new Student("Шершнев С.А.", 71, new int[]{3, 2, 7, 1, 8});
+
         StudentControl students = new StudentControl(new Student[]{student1, student2, student3, student4, student5, student6, student7, student8, student9, student10});
         students.exelStudents();
+
     }
 }

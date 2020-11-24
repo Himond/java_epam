@@ -12,9 +12,9 @@ public class Test2 {
     public Test2() {
     }
 
-    public <T extends Number, V extends T>Test2(T x, V y) {
-        this.x =  x.doubleValue();
-        this.y = y.doubleValue();
+    public Test2(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
 
     public double getX() {
