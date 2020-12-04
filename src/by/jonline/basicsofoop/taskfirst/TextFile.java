@@ -5,8 +5,9 @@ package by.jonline.basicsofoop.taskfirst;
 
 public class TextFile extends File{
 
-    private final String EXT = ".txt";
+
     private StringBuilder text;
+    private final String EXT = ".txt";
 
     public TextFile(String name, Directory dir) {
         super(name, dir);
@@ -28,7 +29,6 @@ public class TextFile extends File{
         }else {
             System.out.println("Создайте текстовый файл");
         }
-
     }
 
     public void printText(){
@@ -51,5 +51,8 @@ public class TextFile extends File{
 
     }
 
-
+    @Override
+    public String toString() {
+        return "name=" + super.getName() + EXT + '}';
+    }
 }
