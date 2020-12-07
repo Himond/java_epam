@@ -9,19 +9,21 @@ package by.jonline.progwithclass.simpletasksix;
 
 public class TimeMain {
     public static void main(String[] args) {
-        Time time = new Time(12, 0, 0);
+        Time time = new Time(2, 0, 0);
+        TimeLogic logic = new TimeLogic();
 
-        System.out.println(time.getTime());
+        logic.printTime(time);
+
         for (int i = 1; i <= 60; i++){
-            time.changeTime(0, -1, 1);
-            System.out.println(time.getTime());
+            logic.changeTime(0, -1, 1, time);
+            logic.printTime(time);
         }
 
-        time.setHours(23);
-        time.setMinutes(23);
-        time.setSeconds(23);
+        logic.setHour(23, time);
+        logic.setMinute(23, time);
+        logic.setSecond(23, time);
 
-        System.out.println(time.getTime());
+        logic.printTime(time);
     }
 
 }

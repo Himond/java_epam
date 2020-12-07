@@ -5,6 +5,8 @@ package by.jonline.progwithclass.simpletaskfive;
 уменьшения состояния, и метод позволяющее получить его текущее состояние.
 Написать код, демонстрирующий все возможности класса.*/
 
+import java.util.Objects;
+
 public class DecCounter {
 
     private int count;
@@ -47,6 +49,19 @@ public class DecCounter {
                 ", LOWER_LIMIT=" + lowerLimit +
                 ", UPPER_LIMIT=" + upperLimit +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DecCounter that = (DecCounter) o;
+        return count == that.count && lowerLimit == that.lowerLimit && upperLimit == that.upperLimit;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(count, lowerLimit, upperLimit);
     }
 }
 

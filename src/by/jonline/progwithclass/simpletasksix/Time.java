@@ -7,87 +7,66 @@ package by.jonline.progwithclass.simpletasksix;
 Создать методы изменения времени на заданное количество часов, минут и секунд.
 */
 
+import java.util.Objects;
+
 public class Time {
 
-    private int hours;
-    private int minutes;
-    private int seconds;
+    private int hour;
+    private int minute;
+    private int second;
 
-    public Time(int hours, int minutes, int seconds){
-        if((hours >= 0 && hours < 24) && (minutes >= 0 && minutes < 60) && (seconds >= 0 && seconds < 60)){
-            this.hours = hours;
-            this.minutes = minutes;
-            this.seconds = seconds;
-        }else {
-            System.out.println("Введено неверное значение времени");
-        }
+    public Time(){
     }
 
-    public void setHours(int hours) {
-
-        if (hours >= 0 && hours < 24){
-            this.hours = hours;
-        }else{
-            this.hours = 0;
-            System.out.println("Установленно неверное значение часа");
-        }
-
+    public Time(int hour, int minute, int second) {
+        this.hour = hour;
+        this.minute = minute;
+        this.second = second;
     }
 
-    public void setMinutes(int minutes) {
-
-        if (minutes >= 0 && minutes < 60){
-            this.minutes = minutes;
-        }else{
-            this.minutes = 0;
-            System.out.println("Установленно неверное значение минут");
-        }
-
+    public int getHour() {
+        return hour;
     }
 
-    public void setSeconds(int seconds) {
-
-        if (seconds >= 0 && seconds < 60){
-            this.seconds = seconds;
-        }else{
-            this.seconds = 0;
-            System.out.println("Установленно неверное значение секунд");
-        }
-
+    public void setHour(int hour) {
+        this.hour = hour;
     }
 
-    public String getTime(){
-
-        String hoursToString;
-        String minutesToString;
-        String secondsToString;
-
-        hoursToString = this.hours < 10 ? "0" + this.hours: Integer.toString(this.hours);
-        minutesToString = this.minutes < 10 ? "0" + this.minutes: Integer.toString(this.minutes);
-        secondsToString = this.seconds < 10 ? "0" + this.seconds: Integer.toString(this.seconds);
-
-        return hoursToString + ":" + minutesToString + ":" + secondsToString;
+    public int getMinute() {
+        return minute;
     }
 
-    public void changeTime(int hours, int minutes, int seconds){
-
-        long resultTimeInSec;
-        resultTimeInSec = convertTime(hours, minutes, seconds) + convertTime(this.hours, this.minutes, this.seconds);
-
-        if(resultTimeInSec >= 86400){
-            resultTimeInSec -= (resultTimeInSec / 86400) * 86400;
-        }else if(resultTimeInSec < 0){
-            resultTimeInSec += 86400;
-        }
-
-        this.hours = (int)resultTimeInSec / 3600;
-        this.minutes = (int)(resultTimeInSec - this.hours * 3600) / 60;
-        this.seconds = (int)(resultTimeInSec - this.hours * 3600 - this.minutes * 60);
+    public void setMinute(int minute) {
+        this.minute = minute;
     }
 
-    private long convertTime(int hours, int minutes, int seconds){
-        return (hours * 3600) + (minutes * 60) + seconds;
+    public int getSecond() {
+        return second;
     }
 
+    public void setSeconds(int second) {
+        this.second = second;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Time time = (Time) o;
+        return hour == time.hour && minute == time.minute && second == time.second;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hour, minute, second);
+    }
+
+    @Override
+    public String toString() {
+        return "Time{" +
+                "hours=" + hour +
+                ", minutes=" + minute +
+                ", seconds=" + second +
+                '}';
+    }
 }
