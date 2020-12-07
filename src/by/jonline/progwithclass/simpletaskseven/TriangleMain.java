@@ -5,6 +5,7 @@ package by.jonline.progwithclass.simpletaskseven;
 
 public class TriangleMain {
     public static void main(String[] args) {
+
         Point A = new Point(1, 1);
         Point B = new Point(4, 2);
         Point C = new Point(1, 8);

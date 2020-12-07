@@ -7,7 +7,9 @@ package by.jonline.progwithclass.simpletaskeight;
 a) список покупателей в алфавитном порядке;
 b) список покупателей, у которых номер кредитной карточки находится в заданном интервале*/
 
-public class Customer{
+import java.util.Objects;
+
+public class Customer implements Comparable<Customer>{
     private int id;
     private String surname;
     private String name;
@@ -83,6 +85,19 @@ public class Customer{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return id == customer.id && card_number == customer.card_number && account_number == customer.account_number && Objects.equals(surname, customer.surname) && Objects.equals(name, customer.name) && Objects.equals(middlename, customer.middlename) && Objects.equals(addres, customer.addres);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, surname, name, middlename, addres, card_number, account_number);
+    }
+
+    @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
@@ -95,4 +110,8 @@ public class Customer{
                 '}';
     }
 
+    @Override
+    public int compareTo(Customer o) {
+        return this.getSurname().toLowerCase().compareTo(o.getSurname().toLowerCase());
+    }
 }
