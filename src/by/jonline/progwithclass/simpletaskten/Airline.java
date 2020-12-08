@@ -9,70 +9,48 @@ a) список рейсов для заданного пункта назнач
 b) список рейсов для заданного дня недели;
 c) список рейсов для заданного дня недели, время вылета для которых больше заданного.*/
 
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Airline {
 
-    private String destination;
-    private int flight_number;
-    private String type_aircraft;
-    private String time_of_departure;
-    private String day_of_week;
+    private List<Aircraft> aircrafts;
 
-    public Airline(String destination, int flight_number, String type_aircraft, String time_of_departure, String day_of_week) {
-        this.destination = destination;
-        this.flight_number = flight_number;
-        this.type_aircraft = type_aircraft;
-        this.time_of_departure = time_of_departure;
-        this.day_of_week = day_of_week;
+    {
+        aircrafts = new ArrayList<>();
     }
 
-    public String getDestination() {
-        return destination;
+    public List<Aircraft> getAircrafts() {
+        return aircrafts;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setAircrafts(Aircraft aircraft) {
+        this.aircrafts.add(aircraft);
     }
 
-    public int getFlight_number() {
-        return flight_number;
+    public void removeAircrafts(Aircraft aircraft){
+        this.aircrafts.remove(aircraft);
     }
 
-    public void setFlight_number(int flight_number) {
-        this.flight_number = flight_number;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Airline airline = (Airline) o;
+        return Objects.equals(aircrafts, airline.aircrafts);
     }
 
-    public String getType_aircraft() {
-        return type_aircraft;
-    }
-
-    public void setType_aircraft(String type_aircraft) {
-        this.type_aircraft = type_aircraft;
-    }
-
-    public String getTime_of_departure() {
-        return time_of_departure;
-    }
-
-    public void setTime_of_departure(String time_of_departure) {
-        this.time_of_departure = time_of_departure;
-    }
-
-    public String getDay_of_week() {
-        return day_of_week;
-    }
-
-    public void setDay_of_week(String day_of_week) {
-        this.day_of_week = day_of_week;
+    @Override
+    public int hashCode() {
+        return Objects.hash(aircrafts);
     }
 
     @Override
     public String toString() {
         return "Airline{" +
-                "destination='" + destination + '\'' +
-                ", flight_number=" + flight_number +
-                ", type_aircraft='" + type_aircraft + '\'' +
-                ", time_of_departure='" + time_of_departure + '\'' +
-                ", day_of_week='" + day_of_week + '\'' +
+                "aircrafts=" + aircrafts +
                 '}';
     }
 }

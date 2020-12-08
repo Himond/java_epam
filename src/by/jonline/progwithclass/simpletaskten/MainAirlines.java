@@ -10,26 +10,27 @@ b) список рейсов для заданного дня недели;
 c) список рейсов для заданного дня недели, время вылета для которых больше заданного.*/
 
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class MainAirlines {
     public static void main(String[] args) {
+        Airline airline = new Airline();
+        AirlineLogic logic = new AirlineLogic();
+        AirlineView view = new AirlineView();
 
-        Airline airline1 = new Airline("Хургада",  9207, "Boeing 737-800", "04:05", "Monday");
-        Airline airline2 = new Airline("Стамбул",  783, "Embraer 195", "09:20", "Monday");
-        Airline airline3 = new Airline("Львов",  827, "Embraer 175", "13:10", "Tuesday");
-        Airline airline4 = new Airline("Хургада",  9115, "Boeing 737-800", "18:20", "Tuesday");
+        Aircraft aircraft1 = new Aircraft("Хургада",  9207, "Boeing 737-800", new GregorianCalendar(2020, Calendar.AUGUST,17, 4, 20));
+        Aircraft aircraft2 = new Aircraft("Стамбул",  783, "Embraer 195", new GregorianCalendar(2020, Calendar.AUGUST, 17, 9, 40));
+        Aircraft aircraft3 = new Aircraft("Львов",  827, "Embraer 175", new GregorianCalendar(2020, Calendar.AUGUST, 19, 12, 10));
+        Aircraft aircraft4 = new Aircraft("Хургада",  9115, "Boeing 737-800",  new GregorianCalendar(2020, Calendar.AUGUST, 19, 18, 5));
 
-        AirlineControl airlines = new AirlineControl(airline1);
+        airline.setAircrafts(aircraft1);
+        airline.setAircrafts(aircraft2);
+        airline.setAircrafts(aircraft3);
+        airline.setAircrafts(aircraft4);
 
-        System.out.println(Arrays.toString(airlines.getAirlines()));
-        airlines.addAirlines(new Airline[]{airline2, airline3, airline4});
-        System.out.println(Arrays.toString(airlines.getAirlines()));
-        airlines.removeAirline(airline3);
-        System.out.println(Arrays.toString(airlines.getAirlines()));
-        airlines.addAirlines(airline3);
-        System.out.println(Arrays.toString(airlines.getAirlines()));
-        System.out.println(airlines.destinationAirplane("Хургада"));
-        System.out.println(airlines.weekDayAirplane("Monday"));
-        System.out.println(airlines.weekDayAirplane("Monday", "08:00"));
+        view.print("список рейсов для заданного пункта назначения: ", logic.destinationPlane("Хургада", airline.getAircrafts()));
+        view.print("список рейсов для заданного дня недели: ", logic.departureDay("Monday", airline.getAircrafts()));
+        view.print("список рейсов для заданного дня недели, время вылета для которых больше заданного: ", logic.departureTime(8, 0, logic.departureDay("Monday", airline.getAircrafts() )));
     }
 }
