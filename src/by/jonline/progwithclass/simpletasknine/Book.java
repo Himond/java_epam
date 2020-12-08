@@ -9,24 +9,26 @@ a) список книг заданного автора;
 b) список книг, выпущенных заданным издательством;
 c) список книг, выпущенных после заданного года.*/
 
+import java.util.Objects;
+
 public class Book {
 
     private int id;
     private String title;
-    private String authors;
+    private String author;
     private String publishing_house;
     private int publication_year;
-    private int number_pages;
+    private int sum_page;
     private int price;
-    private String type_binding;
+    private BindingType type_binding;
 
-    public Book(int id, String title, String authors, String publishing_house, int publication_year, int number_pages, int price, String type_binding) {
+    public Book(int id, String title, String author, String publishing_house, int publication_year, int number_pages, int price, BindingType type_binding) {
         this.id = id;
         this.title = title;
-        this.authors = authors;
+        this.author = author;
         this.publishing_house = publishing_house;
         this.publication_year = publication_year;
-        this.number_pages = number_pages;
+        this.sum_page = number_pages;
         this.price = price;
         this.type_binding = type_binding;
     }
@@ -47,12 +49,12 @@ public class Book {
         this.id = id;
     }
 
-    public String getAuthors() {
-        return authors;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthors(String authors) {
-        this.authors = authors;
+    public void setAuthor(String authors) {
+        this.author = authors;
     }
 
     public String getPublishing_house() {
@@ -72,11 +74,11 @@ public class Book {
     }
 
     public int getNumber_pages() {
-        return number_pages;
+        return sum_page;
     }
 
     public void setNumber_pages(int number_pages) {
-        this.number_pages = number_pages;
+        this.sum_page = number_pages;
     }
 
     public int getPrice() {
@@ -87,12 +89,27 @@ public class Book {
         this.price = price;
     }
 
-    public String getType_binding() {
+    public BindingType getType_binding() {
         return type_binding;
     }
 
-    public void setType_binding(String type_binding) {
+    public void setType_binding(BindingType type_binding) {
         this.type_binding = type_binding;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id && publication_year == book.publication_year && sum_page == book.sum_page && price == book.price
+                && Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(publishing_house, book.publishing_house)
+                && Objects.equals(type_binding, book.type_binding);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, author, publishing_house, publication_year, sum_page, price, type_binding);
     }
 
     @Override
@@ -100,10 +117,10 @@ public class Book {
         return "Book{" +
                 "id=" + id +
                 ", name='" + title + '\'' +
-                ", authors='" + authors + '\'' +
+                ", authors='" + author + '\'' +
                 ", publishing_house='" + publishing_house + '\'' +
                 ", publication_year=" + publication_year +
-                ", number_pages=" + number_pages +
+                ", number_pages=" + sum_page +
                 ", price=" + price +
                 ", type_binding='" + type_binding + '\'' +
                 '}';

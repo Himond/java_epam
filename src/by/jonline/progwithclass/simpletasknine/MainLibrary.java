@@ -13,25 +13,25 @@ import java.util.Arrays;
 
 public class MainLibrary {
     public static void main(String[] args) {
-        Book book1 = new Book(1, "Война и мир","Лев Толстой", "Эксмо", 1869, 1300, 120, "Твердый переплет");
-        Book book2 = new Book(2, "1984","Джордж Оруэлл", "АСТ", 1949, 250, 80, "Твердый переплет");
-        Book book3 = new Book(3, "Улисс","Джеймс Джойс", "Просвещение", 1922, 425, 92, "Твердый переплет");
-        Book book4 = new Book(4, "Лолита","Владимир Набоков", "Эксмо", 1955, 521, 98, "Твердый переплет");
-        Book book5 = new Book(5, "Шум и ярость","Джеймс Джойс", "Просвещение", 1929, 345, 75, "Твердый переплет");
+        Library library = new Library();
+        BookLogic logic = new BookLogic();
+        BookView view = new BookView();
 
-        Library library = new Library(new Book[]{book1, book2, book3});
+        Book book1 = new Book(1, "Война и мир","Лев Толстой", "Эксмо", 1869, 1300, 120, BindingType.HARDCOVER_BOUND);
+        Book book2 = new Book(2, "1984","Джордж Оруэлл", "АСТ", 1949, 250, 80, BindingType.HARDCOVER_BOUND);
+        Book book3 = new Book(3, "Улисс","Джеймс Джойс", "Просвещение", 1922, 425, 92, BindingType.PERFECT_BOUND);
+        Book book4 = new Book(4, "Лолита","Владимир Набоков", "Эксмо", 1955, 521, 98, BindingType.SCREW_BOUND);
+        Book book5 = new Book(5, "Шум и ярость","Джеймс Джойс", "Просвещение", 1929, 345, 75, BindingType.TAPE_BOUND);
 
-        System.out.println(Arrays.toString(library.getBooks()));
-        library.addBooks(new Book[]{book4, book5});
-        System.out.println(Arrays.toString(library.getBooks()));
-        library.removeBook("Лолита");
-        System.out.println(Arrays.toString(library.getBooks()));
-        library.removeBook("Гарри Поттер");
-        System.out.println(Arrays.toString(library.booksAuthor("Джеймс Джойс")));
-        library.addBooks(book4);
-        System.out.println(library.publishingHouseBooks("Эксмо"));
-        System.out.println(library.booksReleasedAfter(1940));
+        library.setBooks(book1);
+        library.setBooks(book2);
+        library.setBooks(book3);
+        library.setBooks(book4);
+        library.setBooks(book5);
 
+        view.print("список книг заданного автора: ", logic.booksAuthor("Джеймс Джойс", library.getBooks()));
+        view.print("список книг, выпущенных заданным издательством: ", logic.publishingHouseBooks("Эксмо", library.getBooks()));
+        view.print("список книг, выпущенных после заданного года: ", logic.booksReleasedAfter(1930, library.getBooks()));
 
     }
 }
