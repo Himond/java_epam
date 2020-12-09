@@ -4,50 +4,58 @@ package by.jonline.progwithclass.aggregationandcompositionеtaskone;
 Методы: дополнить текст, вывести на консоль текст, заголовок текста.*/
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 public class Text {
 
     private Sentence header;
-    private Sentence[] text;
+    private List<Sentence> text;
 
-    public Text(Sentence header, Sentence[] text) {
-        this.header = header;
-        this.text = text;
+    {
+        text = new ArrayList<>();
     }
-    //print the text title
-    public String getHeader() {
-        return header.getSentence();
+    public Text() {
+    }
+
+    public Text(Sentence header) {
+        this.header = header;
+    }
+
+    public Sentence getHeader() {
+        return header;
     }
 
     public void setHeader(Sentence header) {
         this.header = header;
     }
 
-    //Output text to the console
-    public String getText() {
-        StringBuilder newtext = new StringBuilder();
-        newtext.append("\t\t").append(header.getSentence()).append("\n");
-        for(int i = 0; i < text.length; i++){
-            if(i == 0){
-                newtext.append("\t").append(text[i].getSentence()).append(" ");
-            }else if(i == text.length -1){
-                newtext.append(text[i].getSentence());
-            }else {
-                newtext.append(text[i].getSentence()).append(" ");
-            }
-        }
-        return newtext.toString();
+    public List<Sentence> getText() {
+        return text;
     }
 
-    public void setText(Sentence[] text) {
-        this.text = text;
+    public void setText(Sentence sentence) {
+        this.text.add(sentence);
     }
 
-    //Supplement the text
-    public void addText(Sentence[] newtext){
-        ArrayList<Sentence> list = new ArrayList<>(Arrays.asList(text));
-        list.addAll(Arrays.asList(newtext));
-        this.text = list.toArray(new Sentence[0]);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Text text1 = (Text) o;
+        return Objects.equals(header, text1.header) && Objects.equals(text, text1.text);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(header, text);
+    }
+
+    @Override
+    public String toString() {
+        return "Text{" +
+                "header=" + header +
+                ", text=" + text +
+                '}';
     }
 }

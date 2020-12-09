@@ -6,31 +6,55 @@ package by.jonline.progwithclass.aggregationandcompositionеtaskone;
 public class MainText {
     public static void main(String[] args) {
 
-        Word word1 = new Word("giraffes");
-        Word word2 = new Word("there");
-        Word word3 = new Word("are");
-        Word word4 = new Word("different");
-        Word word5 = new Word("kinds");
-        Word word6 = new Word("of");
-        Word word7 = new Word("animals");
-        Word word8 = new Word("on");
-        Word word9 = new Word("our");
-        Word word10 = new Word("planet");
-        Word word11 = new Word("very");
-        Word word12 = new Word("beautiful");
-        Word word13 = new Word("and");
-        Word word14 = new Word("unusual");
+        TextLogic logic = new TextLogic();
 
-        Sentence header = new Sentence(word1);
+        Word word1 = new Word("Основы");
+        Word word2 = new Word("классов");
+        Word word3 = new Word("и");
+        Word word4 = new Word("объектов");
+        Word word5 = new Word("Java");
+        Word word6 = new Word("классы");
+        Word word7 = new Word("в");
+        Word word8 = new Word("языке");
+        Word word9 = new Word("объединяют");
+        Word word10 = new Word("поля");
+        Word word11 = new Word("класса,");
+        Word word12 = new Word("методы,");
+        Word word13 = new Word("конструкторы,");
+        Word word14 = new Word("логические");
+        Word word15 = new Word("блоки");
+        Word word16 = new Word("внутренние");
 
-        Sentence sentence1 = new Sentence(new Word[]{word2, word3, word4, word5, word6, word7, word8, word9, word10});
-        Sentence sentence2 = new Sentence(new Word[]{word1, word3, word11, word12, word13, word14, word7});
 
-        Text text = new Text(header, new Sentence[]{sentence1});
+        Sentence header = new Sentence();
+        header.setSentence(word1);
+        header.setSentence(word2);
+        header.setSentence(word3);
+        header.setSentence(word4);
+        header.setSentence(word5);
 
-        System.out.println(text.getHeader());
-        System.out.println(text.getText());
-        text.addText(new Sentence[]{sentence2});
-        System.out.println(text.getText());
+        Sentence sentence = new Sentence();
+        sentence.setSentence(word6);
+        sentence.setSentence(word7);
+        sentence.setSentence(word8);
+        sentence.setSentence(word5);
+        sentence.setSentence(word9);
+        sentence.setSentence(word10);
+        sentence.setSentence(word11);
+        sentence.setSentence(word12);
+        sentence.setSentence(word13);
+        sentence.setSentence(word14);
+        sentence.setSentence(word15);
+        sentence.setSentence(word3);
+        sentence.setSentence(word16);
+        sentence.setSentence(word6);
+
+        Text text = new Text(header);
+        text.setText(sentence);
+
+        System.out.println(logic.buildHeader(text.getHeader()));
+        System.out.println(logic.buildText(text.getText()));
+
+
     }
 }

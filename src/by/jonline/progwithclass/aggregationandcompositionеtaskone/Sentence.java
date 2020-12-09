@@ -4,43 +4,36 @@ package by.jonline.progwithclass.aggregationandcompositionеtaskone;
 Методы: дополнить текст, вывести на консоль текст, заголовок текста.*/
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Sentence {
 
-    private Word[] sentence;
+    private List<Word> sentence;
 
-    public Sentence(Word[] sentence) {
-        sentence[0] = trasformWord(sentence[0]);
-        this.sentence = sentence;
+    public Sentence() {
+        this.sentence = new ArrayList<>();
     }
 
-    public Sentence(Word sentence) {
-        ArrayList<Word> list = new ArrayList<>();
-        list.add(trasformWord(sentence));
-        this.sentence = list.toArray(new Word[0]);
+    public List<Word> getSentence() {
+        return sentence;
     }
 
-    //output a text sentence to the console
-    public String getSentence() {
-        StringBuilder sent = new StringBuilder();
-        for(int i = 0; i < sentence.length; i++){
-            if(i != sentence.length - 1){
-                sent.append(sentence[i].getWord()).append(" ");
-            }else {
-                sent.append(sentence[i].getWord()).append(".");
-            }
-        }
-        return sent.toString();
+    public void setSentence(Word word) {
+        this.sentence.add(word);
     }
 
-    public void setSentence(Word[] sentence) {
-        this.sentence = sentence;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sentence sentence1 = (Sentence) o;
+        return Objects.equals(sentence, sentence1.sentence);
     }
 
-    private Word trasformWord(Word word){
-        char[] new_word = word.getWord().toCharArray();
-        new_word[0] = (char) (new_word[0] - 32);
-        return new Word(String.valueOf(new_word));
+    @Override
+    public int hashCode() {
+        return Objects.hash(sentence);
     }
 
     @Override
