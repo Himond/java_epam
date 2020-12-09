@@ -3,83 +3,106 @@ package by.jonline.progwithclass.aggregationandcompositionеtasktwo;
 /*Создать объект класса Автомобиль, используя классы Колесо, Двигатель.
 Методы: ехать, заправляться, менять колесо, вывести на консоль марку автомобиля.*/
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Car {
 
     private String car_model;
-    private Wheel[] wheels;
+    private List<Wheel> wheels;
     private Engine engine;
-    private final double FUEL_TANK_VOLUEM;
-    private double fuel_in_the_tank;
+    private double tank_volume;
+    private double car_mileage;
+    private double fuel_quantity;
 
-    public Car(String car_model, Wheel[] wheels, Engine engine, double fuel_tank_volume) {
+    {
+        this.wheels = new ArrayList<>();
+    }
+
+    public Car(){
+    }
+
+    public Car(String car_model, Engine engine, double fuel_tank_volume) {
         this.car_model = car_model;
-        this.wheels = wheels;
         this.engine = engine;
-        this.FUEL_TANK_VOLUEM = fuel_tank_volume;
-        this.fuel_in_the_tank = fuel_tank_volume;
+        this.tank_volume = fuel_tank_volume;
     }
 
     public String getCar_model() {
         return car_model;
     }
 
-    public Wheel[] getWheels() {
+    public List<Wheel> getWheels() {
         return wheels;
     }
 
-    public double getFuel_in_the_tank() {
-        return fuel_in_the_tank;
+    public void setWheels(Wheel wheel) {
+        this.wheels.add(wheel);
+    }
+
+    public void removeWheels(){
+        this.wheels = new ArrayList<>();
+    }
+
+    public void removeWheel(Wheel wheel){
+        this.wheels.remove(wheel);
     }
 
     public Engine getEngine() {
         return engine;
     }
 
-    public void setCar_model(String car_model) {
-        this.car_model = car_model;
-    }
-
-    public void setWheels(Wheel[] wheels) {
-        this.wheels = wheels;
-    }
-
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
 
-    //the method simulates the movement of a car
-    public int run(int distance) {
-        for (int i = 0; i < wheels.length; i++){
-            if(wheels[i].checkMileage(distance)){
-                System.out.println("Замените колесо номер: " + i);
-                return i + 1;
-            }
-        }
-        for (int mil = 0; mil <= distance; mil++){
-            fuel_in_the_tank = fuel_in_the_tank - 1 / 100.0 * engine.getFUEL_CONSUMPTION();
-            for (Wheel wheel : wheels) {
-                wheel.tireWear(1);
-            }
-            if (fuel_in_the_tank <= 0 ){
-                System.out.println("Недостаточно топлива в баке");
-                return -1;
-            }
-        }
-        return distance;
+    public double getTank_volume() {
+        return tank_volume;
     }
 
-    //the method simulates filling a car
-    public void refuelCar(){
-        this.fuel_in_the_tank = FUEL_TANK_VOLUEM;
-        System.out.println("Бак заправлен");
+    public double getCar_mileage() {
+        return car_mileage;
     }
 
-    //method simulates wheel replacement
-    public void wheelChange(int i){
-        int num = i - 1;
-        wheels[num] = new Wheel(wheels[num].getManufacturer(), wheels[num].getWidth(), wheels[num].getHeight_to_width_ratio(),
-                wheels[num].getTire_design(), wheels[num].getDiameter(), wheels[num].getLoad_index(), wheels[num].getSpeed_index());
-        System.out.println("Колесо номер: " + num  + " заменено");
+    public void addCar_mileage(double car_mileage) {
+        this.car_mileage += car_mileage;
     }
 
+    public double getFuel_quantity() {
+        return fuel_quantity;
+    }
+
+    public void setFuel_quantity(double fuel_quantity) {
+        this.fuel_quantity = fuel_quantity;
+    }
+
+    public void removeFuel(double quantity){
+        this.fuel_quantity -= quantity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Double.compare(car.tank_volume, tank_volume) == 0 && Double.compare(car.car_mileage, car_mileage) == 0 && Double.compare(car.fuel_quantity, fuel_quantity) == 0 && Objects.equals(car_model, car.car_model) && Objects.equals(wheels, car.wheels) && Objects.equals(engine, car.engine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(car_model, wheels, engine, tank_volume, car_mileage, fuel_quantity);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "car_model='" + car_model + '\'' +
+                ", wheels=" + wheels +
+                ", engine=" + engine +
+                ", tank_volume=" + tank_volume +
+                ", car_mileage=" + car_mileage +
+                ", fuel_quantity=" + fuel_quantity +
+                '}';
+    }
 }
