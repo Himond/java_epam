@@ -4,27 +4,37 @@ package by.jonline.progwithclass.aggregationandcompositionеtaskfour;
 Реализовать поиск и сортировку счетов. Вычисление общей суммы по счетам.
 Вычисление суммы по всем счетам, имеющим положительный и отрицательный балансы отдельно.*/
 
-import java.util.Arrays;
-
 public class MainClient {
     public static void main(String[] args) throws InterruptedException {
-        BankAccount account1 = new BankAccount(45221256);
-        Thread.sleep(1000);
-        BankAccount account2 = new BankAccount(43521555);
-        Thread.sleep(1000);
-        BankAccount account3 = new BankAccount(42511111);
-        account1.topUPAccount(1255);
-        account2.topUPAccount(1358.52);
-        account3.withdrawAccount(1544.14);
-        BankСlient client = new BankСlient("Ivanov", "Ivan", 1325887492, account1);
+
+        BankLogic logic = new BankLogic();
+        BankView view = new BankView();
+
+        Account account1 = new Account(45221256);
+        Account account2 = new Account(43521555);
+        Account account3 = new Account(42511111);
+        Account account4 = new Account(53225415);
+
+
+        Сlient client = new Сlient("Ivanov", "Ivan", 1325887492);
+
+        client.addAccount(account1);
         client.addAccount(account2);
         client.addAccount(account3);
-        System.out.println(client.accountSearch(43521555));
-        System.out.println(Arrays.toString(client.sortAccountByBalance()));
-        System.out.println(Arrays.toString(client.sortAccountByDate()));
-        System.out.println(client.balanceAllAccounts());
-        System.out.println(Arrays.toString(client.balancePositiveAndNegativeAccounts()));
+        client.addAccount(account4);
 
+        logic.topUpAccount(2105.23, logic.accountSearch(42511111, client));
+        logic.topUpAccount(1320.12, logic.accountSearch(45221256, client));
+        logic.withdrawAccount(895.1, logic.accountSearch(43521555, client));
+        logic.withdrawAccount(1100.85, logic.accountSearch(53225415, client));
+
+        view.print("Сортировка по номеру счета: ", logic.sortAccountByNumber(client));
+        view.print("Сортировка по балансу: ", logic.sortAccountByBalance(client));
+        view.print("Сумма остатка на всех счетах: ", logic.balanceAllAccounts(client));
+        view.print("Сумма остатка на счетах с положительным и отрицательным балансом: ", logic.balancePositiveAndNegativeAccounts(client));
+
+        logic.blockAccount(logic.accountSearch(42511111, client));
+        logic.withdrawAccount(255, logic.accountSearch(42511111, client));
 
     }
 }
