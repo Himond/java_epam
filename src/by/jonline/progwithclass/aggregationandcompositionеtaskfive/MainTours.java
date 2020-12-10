@@ -4,7 +4,6 @@ package by.jonline.progwithclass.aggregationandcompositionеtaskfive;
 (отдых, экскурсии, лечение, шопинг, круиз и т. д.) для оптимального выбора. Учитывать возможность выбора транспорта,
 питания и числа дней. Реализовать выбор и сортировку путевок.*/
 
-import java.util.Arrays;
 import java.util.List;
 
 public class MainTours {
@@ -17,13 +16,13 @@ public class MainTours {
                  TypeOfTransport.WITHOUT_TRANSPORT,  TypeOfFood.WITHOUT_MEALS, 2);
         Tour tour2 = new Tour("Отдых на Чёрном море в Абхазии 2021", TypesOfTours.REST,
                  TypeOfTransport.TRAIN,  TypeOfFood.BREAKFASTS, 11);
-        Tour tour3 = new Tour("Великая миграция в Кении Найроби", TypesOfTours.SHOPPING,
+        Tour tour3 = new Tour("Великая миграция в Кении Найроби", TypesOfTours.EXCURSION,
                  TypeOfTransport.AIRPLANE, TypeOfFood.FULL_BOARD, 7);
         Tour tour4 = new Tour("Морской круиз Таллин - Хельсинки - Стокгольм", TypesOfTours.CRUISE,
                  TypeOfTransport.SHIP,TypeOfFood.WITHOUT_MEALS, 5);
-        Tour tour5 = new Tour(" Шоп тур в Берлин! +2 экскурсии Познань- Потсдам", TypesOfTours.SHOPPING,
+        Tour tour5 = new Tour(" Шоп тур в Берлин! +2 экскурсии Познань- Потсдам", TypesOfTours.EXCURSION,
                  TypeOfTransport.BUS,  TypeOfFood.BREAKFASTS, 7);
-        Tour tour6 = new Tour(" Шоп тур в Минск", TypesOfTours.SHOPPING,
+        Tour tour6 = new Tour(" Шоп тур в Минск", TypesOfTours.EXCURSION,
                 TypeOfTransport.AIRPLANE, TypeOfFood.HALF_BOARD, 5);
 
         agency.addTours(tour1);
@@ -34,7 +33,7 @@ public class MainTours {
         agency.addTours(tour6);
 
 
-        List<Tour> sortByType = logic.choiceTours(TypesOfTours.SHOPPING, agency.getTours());
+        List<Tour> sortByType = logic.choiceTours(TypesOfTours.EXCURSION, agency.getTours());
         List<Tour> sortByTypeAndTransport = logic.choiceByTransport(TypeOfTransport.AIRPLANE, sortByType);
         List<Tour> sortByTypeAndTransAndMeal = logic.choiceByMeal(TypeOfFood.HALF_BOARD, sortByTypeAndTransport);
 
