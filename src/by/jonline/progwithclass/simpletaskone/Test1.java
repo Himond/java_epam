@@ -4,6 +4,8 @@ package by.jonline.progwithclass.simpletaskone;
 переменных. Добавьте метод, который находит сумму значений этих переменных, и метод, который находит
 наибольшее значение из этих двух переменных*/
 
+import java.util.Objects;
+
 public class Test1 {
 
     private double x;
@@ -30,13 +32,6 @@ public class Test1 {
         this.y = y;
     }
 
-    @Override
-    public String toString() {
-        return "Test1{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
-    }
 
     public double sumXY(){
         return this.getX() + this.getY();
@@ -47,5 +42,24 @@ public class Test1 {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Test1 test1 = (Test1) o;
+        return Double.compare(test1.x, x) == 0 && Double.compare(test1.y, y) == 0;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return "Test1{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

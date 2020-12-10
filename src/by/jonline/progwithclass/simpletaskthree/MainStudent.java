@@ -6,6 +6,8 @@ package by.jonline.progwithclass.simpletaskthree;
 
 public class MainStudent {
     public static void main(String[] args) {
+        College college = new College();
+
         Student student1 = new Student("Петров И.И.", 201, new int[]{4, 6, 7, 5, 8});
         Student student2 = new Student("Сидоров И.В.", 71, new int[]{8, 9, 9, 10, 9});
         Student student3 = new Student("Зайцев П.А.", 71, new int[]{9, 9, 9, 10, 9});
@@ -17,8 +19,22 @@ public class MainStudent {
         Student student9 = new Student("Герасимов Е.А.", 201, new int[]{4, 6, 8, 9, 8});
         Student student10 = new Student("Шершнев С.А.", 71, new int[]{3, 2, 7, 1, 8});
 
-        StudentControl students = new StudentControl(new Student[]{student1, student2, student3, student4, student5, student6, student7, student8, student9, student10});
-        students.exelStudents();
+        college.addStudent(student1);
+        college.addStudent(student2);
+        college.addStudent(student3);
+        college.addStudent(student4);
+        college.addStudent(student5);
+        college.addStudent(student6);
+        college.addStudent(student7);
+        college.addStudent(student8);
+        college.addStudent(student9);
+        college.addStudent(student10);
+
+        for (Student student: college.exelStudents()){
+            System.out.println(student.getSurnameAndInitials() + " " + student.getGroupNumber());
+        }
+
+
 
     }
 }
