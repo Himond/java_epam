@@ -5,33 +5,30 @@ package by.jonline.progwithclass.aggregationandcompositionеtaskfive;
 питания и числа дней. Реализовать выбор и сортировку путевок.*/
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Tour {
 
-    private String name_of_tour;
+    private String nameOfTour;
     private TypesOfTours tour;
-    private String country;
     private TypeOfTransport transport;
-    private TypeOfHotel hotel;
     private TypeOfFood meal;
-    private int[] number_of_days_nights;
+    private int number_of_days;
 
-    public Tour(String name_of_tour, TypesOfTours tour, String country, TypeOfTransport transport, TypeOfHotel hotel, TypeOfFood meal, int days, int nights) {
-        this.name_of_tour = name_of_tour;
+    public Tour(String nameOfTour, TypesOfTours tour, TypeOfTransport transport, TypeOfFood meal, int number_of_days) {
+        this.nameOfTour = nameOfTour;
         this.tour = tour;
-        this.country = country;
         this.transport = transport;
-        this.hotel = hotel;
         this.meal = meal;
-        this.number_of_days_nights = new int[]{days, nights};
+        this.number_of_days = number_of_days;
     }
 
-    public String getName_of_tour() {
-        return name_of_tour;
+    public String getNameOfTour() {
+        return nameOfTour;
     }
 
-    public void setName_of_tour(String name_of_tour) {
-        this.name_of_tour = name_of_tour;
+    public void setNameOfTour(String nameOfTour) {
+        this.nameOfTour = nameOfTour;
     }
 
     public TypesOfTours getTour() {
@@ -42,28 +39,12 @@ public class Tour {
         this.tour = tour;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     public TypeOfTransport getTransport() {
         return transport;
     }
 
     public void setTransport(TypeOfTransport transport) {
         this.transport = transport;
-    }
-
-    public TypeOfHotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(TypeOfHotel hotel) {
-        this.hotel = hotel;
     }
 
     public TypeOfFood getMeal() {
@@ -74,24 +55,35 @@ public class Tour {
         this.meal = meal;
     }
 
-    public int[] getNumber_of_days_nights() {
-        return number_of_days_nights;
+    public int getNumber_of_days() {
+        return number_of_days;
     }
 
-    public void setNumber_of_days_nights(int days, int nights) {
-            this.number_of_days_nights = new int[]{days, nights};
+    public void setNumber_of_days(int number_of_days) {
+        this.number_of_days = number_of_days;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tour tour1 = (Tour) o;
+        return number_of_days == tour1.number_of_days && Objects.equals(nameOfTour, tour1.nameOfTour) && tour == tour1.tour && transport == tour1.transport && meal == tour1.meal;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameOfTour, tour, transport, meal, number_of_days);
     }
 
     @Override
     public String toString() {
         return "Tour{" +
-                "name_of_tour='" + name_of_tour + '\'' +
+                "nameOfTour='" + nameOfTour + '\'' +
                 ", tour=" + tour +
-                ", country='" + country + '\'' +
                 ", transport=" + transport +
-                ", hotel=" + hotel +
                 ", meal=" + meal +
-                ", number_of_days_nights=" + Arrays.toString(number_of_days_nights) +
+                ", number_of_days=" + number_of_days +
                 '}';
     }
 }
