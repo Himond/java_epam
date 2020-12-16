@@ -5,32 +5,28 @@ package by.jonline.basicsofoop.taskfirst;
 
 public class MainText {
     public static void main(String[] args) {
-        Directory newDir = new Directory();
 
-        TextFile file = new TextFile("Test", newDir);
-        System.out.println(file.getDir().getDir());
-        System.out.println(file.getName());
+        FileLogic logic = new FileLogic();
+        FileView view = new FileView();
 
-        file.renameFile("test2");
-        System.out.println(file.getName());
+        File file = logic.createFile("Main");
+        File file1 = logic.createFile("Main1");
+        TextFile textFile = logic.createFile("Java", "В объектно-ориентированном программировании...");
 
-        file.createFile();
+        textFile.addText("В процессе выполнения приложения будет случайным образом сформирован...");
 
-        file.addText("В объектно-ориентированном программировании применение наследова-\n" +
-                "ния предоставляет возможность расширения и дополнения программного\n" +
-                "обеспечения, имеющего сложную структуру с большим количеством классов\n" +
-                "и методов. В задачи суперкласса в этом случае входит определение интерфейса\n" +
-                "(как способа взаимодействия) для всех подклассов.");
-        file.printText();
+        Directory newDir = logic.createDirectory("MainDir");
+        Directory newDir1 = logic.createDirectory("MainDir1");
 
-        file.addText("В процессе выполнения приложения будет случайным образом сформиро-\n" +
-                "ван массив-тест из вопросов разного типа, и информация об ответах на них\n" +
-                "будет выведена на консоль.");
-        file.printText();
+        logic.renameDirectory("NewDir", newDir1);
 
-        file.deleteText("В задачи суперкласса в этом случае входит определение интерфейса\n" +
-                                    "(как способа взаимодействия) для всех подклассов.");
-        file.printText();
+        logic.addDirectory(newDir1, newDir);
+        logic.addFile(file1, newDir);
+        logic.addFile(file, newDir);
+        logic.addFile(textFile, newDir);
+
+        view.printDirectory(newDir);
+        view.printFile(textFile);
 
     }
 }

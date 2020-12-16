@@ -3,29 +3,56 @@ package by.jonline.basicsofoop.taskfirst;
 /*Создать объект класса Текстовый файл, используя классы Файл, Директория. Методы: создать, переименовать,
 вывести на консоль содержимое, дополнить, удалить.*/
 
-public abstract class File {
+public class File {
 
     private String name;
-    private Directory dir;
 
-    public File(String name, Directory dir) {
+    public File(String name) {
         this.name = name;
-        this.dir = dir;
     }
 
-    public String getName() {
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getName(){
         return name;
     }
 
-    public Directory getDir() {
-        return dir;
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj){
+            return true;
+        }
+        if(obj == null){
+            return false;
+        }
+        if(this.getClass() != obj.getClass()){
+            return false;
+        }
+        File file = (File) obj;
+        if(name == null){
+            if (file.name != null){
+                return false;
+            }
+        }else if(!name.equals(file.name)){
+            return false;
+        }
+        return true;
     }
 
-    public void renameFile(String newName){
-        this.name = newName;
+    @Override
+    public int hashCode(){
+        final int prime = 31;
+        int result = 1;
+        result = result * prime + ((name == null) ? 0: name.hashCode());
+        return result;
     }
 
-    public abstract void createFile();
-
-
+    @Override
+    public String toString() {
+        return "File{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

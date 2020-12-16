@@ -5,54 +5,60 @@ package by.jonline.basicsofoop.taskfirst;
 
 public class TextFile extends File{
 
+    private String text;
 
-    private StringBuilder text;
-    private final String EXT = ".txt";
-
-    public TextFile(String name, Directory dir) {
-        super(name, dir);
+    public TextFile(String name, String text) {
+        super(name);
+        this.text = text;
     }
 
-    @Override
-    public void createFile() {
-        text = new StringBuilder();
+    public String getText() {
+        return text;
     }
 
-    @Override
-    public String getName(){
-        return super.getName() + EXT;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public void addText(String text){
-        if(this.text != null){
-            this.text.append(text).append("\n");
-        }else {
-            System.out.println("Создайте текстовый файл");
-        }
+        this.text += " " + text;
     }
 
-    public void printText(){
-        if(this.text != null){
-            System.out.println(text);
-        }else {
-            System.out.println("Создайте текстовый файл");
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj){
+            return true;
         }
-
+        if(!super.equals(obj)){
+            return false;
+        }
+        if(this.getClass() != obj.getClass()){
+            return false;
+        }
+        TextFile textFile = (TextFile) obj;
+        if(text == null){
+            if(textFile.text != null){
+                return false;
+            }
+        }else if(!text.equals(textFile.text)){
+            return false;
+        }
+        return true;
     }
 
-    public void deleteText(String target){
-        if (this.text != null){
-            int startIndex = text.indexOf(target);
-            int stopIndex = startIndex + target.length();
-            text.delete(startIndex, stopIndex);
-        }else {
-            System.out.println("Создайте текстовый файл");
-        }
-
+    @Override
+    public int hashCode(){
+        final int prime = 31;
+        int result = super.hashCode();
+        result = result * prime + ((text == null) ? 0: text.hashCode());
+        return result;
     }
 
     @Override
     public String toString() {
-        return "name=" + super.getName() + EXT + '}';
+        return "TextFile{" +
+                "name='" + super.getName() + '\'' +
+                ", text=" + text +
+                '}';
     }
 }
