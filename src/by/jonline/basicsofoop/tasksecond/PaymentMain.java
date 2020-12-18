@@ -4,28 +4,29 @@ package by.jonline.basicsofoop.tasksecond;
 
 public class PaymentMain {
     public static void main(String[] args) {
+
         Payment payment = new Payment();
 
-        Payment.Product bananas = payment.new Product("бананы", 2.57);
-        Payment.Product bread = payment.new Product("хлеб", 1.82);
-        Payment.Product milk = payment.new Product("молоко", 1.85);
-        Payment.Product chicken = payment.new Product("курица", 7.45);
-        Payment.Product potato = payment.new Product("картошка", 5.45);
+        Payment.Product milk = Payment.Product.newBuilder().setName("молоко").setPrice(26).build();
 
-        payment.addProduct(bananas);
-        payment.addProduct(bread);
+        payment.addProduct(Payment.Product.newBuilder().setName("бананы").setPrice(10).build());
+        payment.addProduct(Payment.Product.newBuilder().setName("хлеб").setPrice(12).build());
         payment.addProduct(milk);
-        payment.addProduct(chicken);
-        payment.addProduct(potato);
+        payment.addProduct(Payment.Product.newBuilder().setName("курица").setPrice(13).build());
+        payment.addProduct(Payment.Product.newBuilder().setName("картошка").setPrice(9).build());
 
-        System.out.printf("Цена %.2f rub%n", payment.getSumPrice());
+
 
         for (Payment.Product prod: payment.getCart()){
             System.out.println(prod.getName());
         }
 
-        payment.delProduct(bananas);
+        System.out.printf("Цена %.2f rub%n", payment.getSumPrice());
 
+        payment.removeProduct(milk);
+        for (Payment.Product prod: payment.getCart()){
+            System.out.println(prod.getName());
+        }
         System.out.printf("Цена %.2f rub%n", payment.getSumPrice());
     }
 }

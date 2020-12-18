@@ -5,28 +5,28 @@ package by.jonline.basicsofoop.thirdtask;
 
 public class CalendarMain {
     public static void main(String[] args) {
-        Calendar calendar = new Calendar(2020);
 
-        Calendar.Holiday newYear = calendar.new Holiday("Новый Год", 1, Month.JANUARY);
-        Calendar.Holiday christmas = calendar.new Holiday("Рождество", 25, Month.DECEMBER);
-        Calendar.Holiday easter = calendar.new Holiday("Пасха", 12, Month.APRIL);
-        Calendar.Holiday humanRightsDay = calendar.new Holiday("День прав человека", 10, Month.DECEMBER);
+        CalendarLogic logic = new CalendarLogic();
+        CalendarView view = new CalendarView();
+        Calendar calendar = logic.createCalendar(2020);
 
-        calendar.addHoliday(newYear);
-        calendar.addHoliday(christmas);
-        calendar.addHoliday(easter);
-        calendar.addHoliday(humanRightsDay);
+        Calendar.Holiday newYear = new Calendar.Holiday("Новый Год", 1, DayOfWeek.WEDNESDAY, Month.JANUARY);
+        Calendar.Holiday christmas = new Calendar.Holiday("Рождество", 25, DayOfWeek.FRIDAY, Month.DECEMBER);
+        Calendar.Holiday easter = new Calendar.Holiday("Пасха", 12, DayOfWeek.SUNDAY, Month.APRIL);
+        Calendar.Holiday humanRightsDay = new Calendar.Holiday("День прав человека", 10, DayOfWeek.THURSDAY, Month.DECEMBER);
 
-        for (Calendar.Holiday holiday: calendar.getAllHolidays()){
-            System.out.println(holiday.getName() + " " + holiday.getDay() + " " + holiday.getMonth());
-        }
+        logic.addHolidays(newYear, calendar);
+        logic.addHolidays(christmas, calendar);
+        logic.addHolidays(easter, calendar);
+        logic.addHolidays(humanRightsDay, calendar);
 
+        view.printCalendar(calendar);
         System.out.println();
+        view.printHolidays(calendar);
+        System.out.println();
+        view.printHolidays(logic.getHolidaysInMonth(Month.DECEMBER, calendar));
 
-        for (Calendar.Holiday holiday: calendar.getHolidaysInMonth(Month.DECEMBER)){
-            System.out.println(holiday.getName() + " " + holiday.getDay() + " " + holiday.getMonth());
-        }
 
-        System.out.println(calendar.getSumHolidays());
+        System.out.println(calendar.getAmountHolidays());
     }
 }

@@ -4,72 +4,61 @@ package by.jonline.basicsofoop.thirdtask;
 информацию о выходных и праздничных днях.*/
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 class Calendar {
 
-    private ArrayList<Holiday> holidays;
-    private final int year;
-    private int sumHolidays;
+    private List<Day> days;
+    private List<Holiday> holidays;
+    private int year;
+
+
+    {
+        this.holidays = new ArrayList<>();
+        this.days = new ArrayList<>();
+    }
 
     public Calendar(int year) {
-        this.holidays = new ArrayList<>();
-        sumHolidays = 0;
-        if(year > 0){
-            this.year = year;
-        }else {
-            this.year = 0;
-        }
+        this.year = year;
     }
 
     public void addHoliday(Holiday holiday){
         holidays.add(holiday);
-        sumHolidays += 1;
     }
 
-    public void delHoliday(Holiday holiday){
+    public void removeHoliday(Holiday holiday){
         holidays.remove(holiday);
-        sumHolidays -= 1;
     }
 
-    public ArrayList<Holiday> getAllHolidays() {
+    public void addDay(Day day){
+        days.add(day);
+    }
+
+    public void removeDay(Day day){
+        days.remove(day);
+    }
+
+
+    public List<Holiday> getHolidays() {
         return holidays;
     }
 
-    public ArrayList<Holiday> getHolidaysInMonth(Month month) {
-        ArrayList<Holiday> holidaysInMonth = new ArrayList<>();
-        for (Holiday holiday: holidays){
-            if (holiday.getMonth() == month){
-                holidaysInMonth.add(holiday);
-            }
-        }
-        return holidaysInMonth;
+    public List<Day> getDays() {
+        return days;
     }
 
-    public int getYear() {
-        return year;
+    public int getAmountHolidays() {
+        return holidays.size();
     }
 
-    public int getSumHolidays() {
-        return sumHolidays;
-    }
-
-
-    public class Holiday{
+    public static class Holiday extends Day{
 
         private String name;
-        private int day;
-        private Month month;
 
-        public Holiday(String name, int day, Month month) {
+        public Holiday(String name, int number, DayOfWeek dayOfWeek, Month month) {
+            super(number, dayOfWeek, month);
             this.name = name;
-            this.month = month;
-
-            if(day > 0 && day <= month.getDay()){
-                this.day = day;
-            }else {
-                this.day = 0;
-            }
-
         }
 
         public String getName() {
@@ -77,38 +66,51 @@ class Calendar {
         }
 
         public void setName(String name) {
-
             this.name = name;
         }
 
-        public int getDay() {
-            return day;
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            if (!super.equals(o)) return false;
+            Holiday holiday = (Holiday) o;
+            return Objects.equals(name, holiday.name);
         }
 
-        public void setDay(int day) {
-            if(day > 0 && day <= month.getDay()){
-                this.day = day;
-            }else {
-                System.out.println("Некорректное значение даты");
-            }
-        }
-
-        public Month getMonth() {
-            return month;
-        }
-
-        public void setMonth(Month month) {
-            this.month = month;
+        @Override
+        public int hashCode() {
+            return Objects.hash(super.hashCode(), name);
         }
 
         @Override
         public String toString() {
             return "Holiday{" +
-                    "name='" + name + '\'' +
-                    ", day=" + day +
-                    ", month=" + month +
+                    "name='" + name + " ,number=" + super.getNumber() +
+                    ", month=" + super.getMonth() +
+                    ", dayOfWeek=" + super.getDayOfWeek() +
                     '}';
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Calendar calendar = (Calendar) o;
+        return year == calendar.year && Objects.equals(holidays, calendar.holidays);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(holidays, year);
+    }
+
+    @Override
+    public String toString() {
+        return "Calendar{" +
+                "holidays=" + holidays +
+                ", year=" + year +
+                '}';
+    }
 }
