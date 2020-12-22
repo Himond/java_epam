@@ -3,7 +3,7 @@ package by.jonline.basicsofoop.taskfirst;
 /*Создать объект класса Текстовый файл, используя классы Файл, Директория. Методы: создать, переименовать,
 вывести на консоль содержимое, дополнить, удалить.*/
 
-public class File {
+public class File{
 
     private String name;
 

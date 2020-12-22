@@ -1,4 +1,4 @@
-package by.jonline.basicsofoop.taskfour;
+package by.jonline.basicsofoop.taskfour.dao;
 
 /*
 Создать консольное приложение, удовлетворяющее следующим требованиям:
@@ -14,47 +14,17 @@ package by.jonline.basicsofoop.taskfour;
 дракона. Реализовать возможность просмотра сокровищ, выбора самого дорогого по стоимости сокровища и
 выбора сокровищ на заданную сумму.*/
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import by.jonline.basicsofoop.taskfour.bean.DragonCave;
+import by.jonline.basicsofoop.taskfour.bean.Treasure;
 
-public class DragonCave {
+import java.io.IOException;
 
-    private List<Treasure> treasures;
+public interface DragonCaveDao {
 
-    public DragonCave() {
-        this.treasures = new ArrayList<>();
-    }
+    void addTreasure(String name, int price) throws IOException;
 
-    public List<Treasure> getTreasures() {
-        return treasures;
-    }
+    Treasure getTreasure(String name);
 
-    public void addTreasure(Treasure treasure) {
-        this.treasures.add(treasure);
-    }
+    DragonCave getAllTreasure();
 
-    public void removeTreasure(Treasure treasure) {
-        this.treasures.remove(treasure);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DragonCave that = (DragonCave) o;
-        return Objects.equals(treasures, that.treasures);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(treasures);
-    }
-
-    @Override
-    public String toString() {
-        return "DragonCave{" +
-                "treasures=" + treasures +
-                '}';
-    }
 }

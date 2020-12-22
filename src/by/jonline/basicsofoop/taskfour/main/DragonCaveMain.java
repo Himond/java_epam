@@ -1,4 +1,4 @@
-package by.jonline.basicsofoop.taskfour;
+package by.jonline.basicsofoop.taskfour.main;
 
 /*
 Создать консольное приложение, удовлетворяющее следующим требованиям:
@@ -14,52 +14,26 @@ package by.jonline.basicsofoop.taskfour;
 дракона. Реализовать возможность просмотра сокровищ, выбора самого дорогого по стоимости сокровища и
 выбора сокровищ на заданную сумму.*/
 
-import java.util.Objects;
+import by.jonline.basicsofoop.taskfour.dao.DragonCaveDAOImpl;
+import by.jonline.basicsofoop.taskfour.dao.DragonCaveDao;
+import by.jonline.basicsofoop.taskfour.view.DragonCaveView;
+import by.jonline.basicsofoop.taskfour.logic.DragonCaveLogic;
 
-public class Treasure {
+import java.io.IOException;
 
-    private String name;
-    private int cost;
+public class DragonCaveMain {
 
-    public Treasure(String name, int cost) {
-        this.name = name;
-        this.cost = cost;
+    public static void main(String[] args) throws IOException {
+        DragonCaveLogic logic = new DragonCaveLogic();
+        DragonCaveView view = new DragonCaveView();
+        DragonCaveDao dao = new DragonCaveDAOImpl();
+
+        dao.addTreasure("diamonds", 300);
+        view.printTreasure("Самое дорогое сокровище:", logic.dearestTreasure());
+        view.printTreasure("Сокровища на заданную сумму:", logic.getTreasureForAmount(1250));
+        view.printTreasure("Все сокровища:", logic.getAllTreasure());
+        view.printTreasure("Сокровище по названию:", logic.getTreasureByName("gold"));
+
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getCost() {
-        return cost;
-    }
-
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Treasure treasure = (Treasure) o;
-        return cost == treasure.cost && Objects.equals(name, treasure.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, cost);
-    }
-
-    @Override
-    public String toString() {
-        return "Treasure{" +
-                "name='" + name + '\'' +
-                ", cost=" + cost +
-                '}';
-    }
 }

@@ -58,4 +58,12 @@ public class Depo{
         result = prime * result + number;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Depo{" +
+                "trains=" + trains +
+                ", number=" + number +
+                '}';
+    }
 }

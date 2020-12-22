@@ -1,4 +1,4 @@
-package by.jonline.basicsofoop.taskfour;
+package by.jonline.basicsofoop.taskfour.logic;
 /*
 Создать консольное приложение, удовлетворяющее следующим требованиям:
 • Приложение должно быть объектно-, а не процедурно-ориентированным.
@@ -13,13 +13,32 @@ package by.jonline.basicsofoop.taskfour;
 дракона. Реализовать возможность просмотра сокровищ, выбора самого дорогого по стоимости сокровища и
 выбора сокровищ на заданную сумму.*/
 
+import by.jonline.basicsofoop.taskfour.bean.DragonCave;
+import by.jonline.basicsofoop.taskfour.bean.Treasure;
+import by.jonline.basicsofoop.taskfour.dao.DragonCaveDAOImpl;
+import by.jonline.basicsofoop.taskfour.dao.DragonCaveDao;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class DragonLogic {
+public class DragonCaveLogic {
 
-    public Treasure dearestTreasure(DragonCave cave){
+    private DragonCaveDao dao = new DragonCaveDAOImpl();
+
+    public DragonCave getAllTreasure(){
+        return dao.getAllTreasure();
+    }
+
+    public Treasure getTreasureByName(String name){
+        return dao.getTreasure(name);
+    }
+
+    public Treasure dearestTreasure(){
+
         Treasure maxCostTreasure = null;
+        DragonCave cave = dao.getAllTreasure();
+
         for (Treasure treasure: cave.getTreasures()){
             if(maxCostTreasure != null){
                 if(maxCostTreasure.getCost() < treasure.getCost()){
@@ -32,16 +51,19 @@ public class DragonLogic {
         return maxCostTreasure;
     }
 
-    public List<Treasure> getTreasureForAmount(int amount, DragonCave cave){
-            int result = amount;
-            List<Treasure> sumTreasure = new ArrayList<>();
-            for(Treasure treasure: cave.getTreasures()){
-                if (result - treasure.getCost() >= 0){
-                    sumTreasure.add(treasure);
-                    result -= treasure.getCost();
-                }
+    public List<Treasure> getTreasureForAmount(int amount){
+
+        DragonCave cave = dao.getAllTreasure();
+
+        int result = amount;
+        List<Treasure> sumTreasure = new ArrayList<>();
+        for(Treasure treasure: cave.getTreasures()){
+            if (result - treasure.getCost() >= 0){
+                sumTreasure.add(treasure);
+                result -= treasure.getCost();
             }
-            return sumTreasure;
+        }
+        return sumTreasure;
     }
 
 

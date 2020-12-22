@@ -5,6 +5,7 @@ package by.jonline.progwithclass.simpletaskthree;
 номеров групп студентов, имеющих оценки, равные только 9 или 10.*/
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Student {
 
@@ -32,6 +33,21 @@ public class Student {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return groupNumber == student.groupNumber && Objects.equals(surnameAndInitials, student.surnameAndInitials) && Arrays.equals(progress, student.progress);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(surnameAndInitials, groupNumber);
+        result = 31 * result + Arrays.hashCode(progress);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Student{" +
                 "surnameAndInitials='" + surnameAndInitials + '\'' +
@@ -39,4 +55,5 @@ public class Student {
                 ", progress=" + Arrays.toString(progress) +
                 '}';
     }
+
 }
