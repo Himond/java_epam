@@ -19,3 +19,5 @@ name: armor, price: 685
 name: staff, price: 320
 name: diamonds, price: 300
 name: diamonds, price: 300
+name: diamonds, price: 300
+name: diamonds, price: 300

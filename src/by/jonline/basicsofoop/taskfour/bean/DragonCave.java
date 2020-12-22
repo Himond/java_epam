@@ -14,16 +14,22 @@ package by.jonline.basicsofoop.taskfour.bean;
 дракона. Реализовать возможность просмотра сокровищ, выбора самого дорогого по стоимости сокровища и
 выбора сокровищ на заданную сумму.*/
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class DragonCave {
+public class DragonCave implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private List<Treasure> treasures;
 
+    {
+        treasures = new ArrayList<>();
+    }
+
     public DragonCave() {
-        this.treasures = new ArrayList<>();
     }
 
     public List<Treasure> getTreasures() {

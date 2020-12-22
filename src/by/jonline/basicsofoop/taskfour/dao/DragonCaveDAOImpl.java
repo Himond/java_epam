@@ -10,24 +10,23 @@ import java.util.regex.Pattern;
 
 public class DragonCaveDAOImpl implements DragonCaveDao{
 
-    private String inputFileName = "src\\by\\jonline\\basicsofoop\\taskfour\\resources\\cave.txt";
-
+    private File file = new File("src\\by\\jonline\\basicsofoop\\taskfour\\resource\\cave.txt");
 
     @Override
     public void addTreasure(String name, int price) throws IOException {
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(inputFileName, true))) {
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
             bw.write("name: " + name + ", price: " + price + "\n");
         }catch (IOException ex){
-            ex.printStackTrace();
+            throw new IOException(ex.getMessage());
         }
     }
 
     @Override
-    public Treasure getTreasure(String name) {
+    public Treasure getTreasure(String name) throws IOException {
         String pars = "name: (\\w+), price: (\\d+)";
         Treasure treasure = null;
         Pattern pattern = Pattern.compile(pars);
-        try (BufferedReader br = new BufferedReader(new FileReader(inputFileName))){
+        try (BufferedReader br = new BufferedReader(new FileReader(file))){
             String line;
             Matcher matcher;
             while ((line = br.readLine()) != null){
@@ -38,17 +37,17 @@ public class DragonCaveDAOImpl implements DragonCaveDao{
                 }
             }
         }catch (IOException ex){
-            ex.printStackTrace();
+            throw new IOException(ex.getMessage());
         }
         return treasure;
     }
 
     @Override
-    public DragonCave getAllTreasure() {
+    public DragonCave getAllTreasure() throws IOException {
         String pars = "name: (\\w+), price: (\\d+)";
         DragonCave cave = new DragonCave();
         Pattern pattern = Pattern.compile(pars);
-        try (BufferedReader br = new BufferedReader(new FileReader(inputFileName))){
+        try (BufferedReader br = new BufferedReader(new FileReader(file))){
             String line;
             Matcher matcher;
             while ((line = br.readLine()) != null){
@@ -58,7 +57,7 @@ public class DragonCaveDAOImpl implements DragonCaveDao{
                 }
             }
         }catch (IOException ex){
-            ex.printStackTrace();
+            throw new IOException(ex.getMessage());
         }
         return cave;
     }

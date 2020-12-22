@@ -19,6 +19,7 @@ import by.jonline.basicsofoop.taskfour.dao.DragonCaveDAOImpl;
 import by.jonline.basicsofoop.taskfour.dao.DragonCaveDao;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,15 +27,15 @@ public class DragonCaveLogic {
 
     private DragonCaveDao dao = new DragonCaveDAOImpl();
 
-    public DragonCave getAllTreasure(){
+    public DragonCave getAllTreasure() throws IOException {
         return dao.getAllTreasure();
     }
 
-    public Treasure getTreasureByName(String name){
+    public Treasure getTreasureByName(String name) throws IOException {
         return dao.getTreasure(name);
     }
 
-    public Treasure dearestTreasure(){
+    public Treasure dearestTreasure() throws IOException {
 
         Treasure maxCostTreasure = null;
         DragonCave cave = dao.getAllTreasure();
@@ -51,7 +52,7 @@ public class DragonCaveLogic {
         return maxCostTreasure;
     }
 
-    public List<Treasure> getTreasureForAmount(int amount){
+    public List<Treasure> getTreasureForAmount(int amount) throws IOException {
 
         DragonCave cave = dao.getAllTreasure();
 

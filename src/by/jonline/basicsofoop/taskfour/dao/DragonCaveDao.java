@@ -23,8 +23,8 @@ public interface DragonCaveDao {
 
     void addTreasure(String name, int price) throws IOException;
 
-    Treasure getTreasure(String name);
+    Treasure getTreasure(String name) throws IOException;
 
-    DragonCave getAllTreasure();
+    DragonCave getAllTreasure() throws IOException;
 
 }
