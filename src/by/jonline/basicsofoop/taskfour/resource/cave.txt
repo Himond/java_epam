@@ -21,3 +21,4 @@ name: diamonds, price: 300
 name: diamonds, price: 300
 name: diamonds, price: 300
 name: diamonds, price: 300
+name: diamonds, price: 300

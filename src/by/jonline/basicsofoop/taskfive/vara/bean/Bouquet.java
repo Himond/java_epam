@@ -48,6 +48,10 @@ public class Bouquet {
         this.flowers.add(flower);
     }
 
+    public void removeFlower(Flower flower){
+        this.flowers.remove(flower);
+    }
+
     public Packaging getPackaging() {
         return packaging;
     }

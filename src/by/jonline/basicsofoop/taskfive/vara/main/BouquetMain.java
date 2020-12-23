@@ -14,17 +14,26 @@ import by.jonline.basicsofoop.taskfive.vara.bean.Bouquet;
 import by.jonline.basicsofoop.taskfive.vara.bean.Flower;
 import by.jonline.basicsofoop.taskfive.vara.bean.Packaging;
 import by.jonline.basicsofoop.taskfive.vara.logic.BouquetLogic;
+import by.jonline.basicsofoop.taskfive.vara.view.BouquetView;
 
 public class BouquetMain {
     public static void main(String[] args) {
+
         BouquetLogic logic = new BouquetLogic();
+        BouquetView view = new BouquetView();
+
         Packaging packaging = new Packaging("Blue", "paper", 85);
-        Flower rose = Flower.newBuilder().setName("Rose").setColor("Red").setPrice(150).build();
-        Flower roseWhite = Flower.newBuilder().setName("Rose").setColor("white").setPrice(170).build();
-        Flower roseYellow = Flower.newBuilder().setName("Rose").setColor("yellow").setPrice(190).build();
-        Flower tulip = Flower.newBuilder().setName("Tulip").setColor("yellow").setPrice(120).build();
-        Flower alstroemeria = Flower.newBuilder().setName("Alstroemeria").setColor("white").setPrice(180).build();
+
+        Flower rose = logic.createFlower("Rose", "red", 150);
+        Flower roseWhite = logic.createFlower("Rose", "white", 170);
+        Flower roseYellow = logic.createFlower("Rose", "yellow", 190);
+        Flower tulip = logic.createFlower("Tulip", "yellow", 120);
+        Flower alstroemeria = logic.createFlower("Alstroemeria", "white", 180);
+
         Bouquet bouquet = logic.createBouquet(packaging, rose, roseWhite, roseYellow, tulip, alstroemeria);
+
+        view.printBouquet("Содержимое букета: ", bouquet);
+        view.printBouquet("Цена букета:", logic.getTotalPrice(bouquet));
 
 
     }
