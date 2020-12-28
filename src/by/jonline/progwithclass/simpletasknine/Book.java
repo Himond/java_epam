@@ -13,7 +13,6 @@ import java.util.Objects;
 
 public class Book {
 
-    private int id;
     private String title;
     private String author;
     private String publishing_house;
@@ -22,8 +21,7 @@ public class Book {
     private int price;
     private BindingType type_binding;
 
-    public Book(int id, String title, String author, String publishing_house, int publication_year, int number_pages, int price, BindingType type_binding) {
-        this.id = id;
+    public Book(String title, String author, String publishing_house, int publication_year, int number_pages, int price, BindingType type_binding) {
         this.title = title;
         this.author = author;
         this.publishing_house = publishing_house;
@@ -33,9 +31,6 @@ public class Book {
         this.type_binding = type_binding;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getTitle() {
         return title;
@@ -45,9 +40,6 @@ public class Book {
         this.title = title;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getAuthor() {
         return author;
@@ -102,27 +94,26 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return id == book.id && publication_year == book.publication_year && sum_page == book.sum_page && price == book.price
+        return  publication_year == book.publication_year && sum_page == book.sum_page && price == book.price
                 && Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(publishing_house, book.publishing_house)
                 && Objects.equals(type_binding, book.type_binding);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, author, publishing_house, publication_year, sum_page, price, type_binding);
+        return Objects.hash(title, author, publishing_house, publication_year, sum_page, price, type_binding);
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "id=" + id +
-                ", name='" + title + '\'' +
-                ", authors='" + author + '\'' +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
                 ", publishing_house='" + publishing_house + '\'' +
                 ", publication_year=" + publication_year +
-                ", number_pages=" + sum_page +
+                ", sum_page=" + sum_page +
                 ", price=" + price +
-                ", type_binding='" + type_binding + '\'' +
+                ", type_binding=" + type_binding +
                 '}';
     }
 }

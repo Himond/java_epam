@@ -9,7 +9,6 @@ a) список книг заданного автора;
 b) список книг, выпущенных заданным издательством;
 c) список книг, выпущенных после заданного года.*/
 
-import java.util.Arrays;
 
 public class MainLibrary {
     public static void main(String[] args) {
@@ -17,11 +16,11 @@ public class MainLibrary {
         BookLogic logic = new BookLogic();
         BookView view = new BookView();
 
-        Book book1 = new Book(1, "Война и мир","Лев Толстой", "Эксмо", 1869, 1300, 120, BindingType.HARDCOVER_BOUND);
-        Book book2 = new Book(2, "1984","Джордж Оруэлл", "АСТ", 1949, 250, 80, BindingType.HARDCOVER_BOUND);
-        Book book3 = new Book(3, "Улисс","Джеймс Джойс", "Просвещение", 1922, 425, 92, BindingType.PERFECT_BOUND);
-        Book book4 = new Book(4, "Лолита","Владимир Набоков", "Эксмо", 1955, 521, 98, BindingType.SCREW_BOUND);
-        Book book5 = new Book(5, "Шум и ярость","Джеймс Джойс", "Просвещение", 1929, 345, 75, BindingType.TAPE_BOUND);
+        Book book1 = new Book( "Война и мир","Лев Толстой", "Эксмо", 1869, 1300, 120, BindingType.HARDCOVER_BOUND);
+        Book book2 = new Book( "1984","Джордж Оруэлл", "АСТ", 1949, 250, 80, BindingType.HARDCOVER_BOUND);
+        Book book3 = new Book( "Улисс","Джеймс Джойс", "Просвещение", 1922, 425, 92, BindingType.PERFECT_BOUND);
+        Book book4 = new Book( "Лолита","Владимир Набоков", "Эксмо", 1955, 521, 98, BindingType.SCREW_BOUND);
+        Book book5 = new Book("Шум и ярость","Джеймс Джойс", "Просвещение", 1929, 345, 75, BindingType.TAPE_BOUND);
 
         library.setBooks(book1);
         library.setBooks(book2);

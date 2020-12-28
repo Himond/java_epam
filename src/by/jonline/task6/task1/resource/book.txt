@@ -1,0 +1,4 @@
+title:1984,author:Джордж Оруэлл,type:electronic,number_of_pages:250
+title:Лолита,author:Владимир Набоков,type:paper,number_of_pages:521
+title:Улисс,author:Джеймс Джойс,type:paper,number_of_pages:425
+title:Шум и ярость,author:Джеймс Джойс,type:paper,number_of_pages:345

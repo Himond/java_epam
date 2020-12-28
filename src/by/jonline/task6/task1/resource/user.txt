@@ -1,0 +1,3 @@
+login:Himond,name:Ihar,email:Ihar@mail.ru,password:e10adc3949ba59abbe56e057f20f883e,is_staff:true
+login:locan,name:Ivan,email:Ivan@mail.ru,password:3571096035f59f062908541cbbc7aae8,is_staff:false
+login:Try,name:Petr,email:Petr@mail.ru,password:9cb42288a1ec48bd9ac71458e5b0886e,is_staff:false
