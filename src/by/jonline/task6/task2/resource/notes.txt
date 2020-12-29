@@ -1,0 +1,9 @@
+topic:Work,date:2020-11-21,email:accountant@mail.ru,message:There will be no bonus this month
+topic:Home,date:2020-09-12,email:wife@mail.ru,message:Go to the store and buy milk
+topic:Work,date:2020-03-19,email:chief@mail.ru,message:Work more work less pay
+topic:Home,date:2020-09-21,email:wife@mail.ru,message:I want a fur coat for my birthday
+topic:Friend,date:2020-04-08,email:friend@mail.ru,message:Go drink beer and play games
+topic:Work,date:2020-11-21,email:work@mail.ru,message:Get up and go work
+topic:Friend,date:2020-08-21,email:friend@mail.ru,message:Let's go to the forest for barbecue
+topic:Store,date:2020-06-19,email:store@mail.ru,message:Buy a new smartphone
+topic:Friend,date:2020-02-01,email:friend@mail.ru,message:...
