@@ -167,18 +167,6 @@ public class NoteBookLogic {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     private Note createNote(String[] splitLine){
         Note note = new Note();
 
