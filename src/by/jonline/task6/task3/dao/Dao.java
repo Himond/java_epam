@@ -1,14 +1,11 @@
 package by.jonline.task6.task3.dao;
 
 import java.io.IOException;
-import java.util.List;
 
-public interface Dao<T> {
+public interface Dao {
 
-    void create(T t) throws IOException;
+    String read() throws IOException;
 
-    List<String> read() throws IOException;
-
-    void update(List<T> list) throws IOException;
+    void update(String list) throws IOException;
 
 }

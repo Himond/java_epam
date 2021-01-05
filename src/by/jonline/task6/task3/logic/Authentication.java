@@ -14,7 +14,7 @@ public class Authentication {
     private final MessageDigest md5 = MessageDigest.getInstance("MD5");
     private UserEmailValidator validator = new UserEmailValidator();
 
-    private UserConverter converter = new UserConverter();
+    private UserAnalyzerXML userAnalyzer = new UserAnalyzerXML();
     private UserDao userDao = new UserDao();
 
     public Authentication() throws NoSuchAlgorithmException {
@@ -23,7 +23,7 @@ public class Authentication {
     public User logIn(String email, String password) throws IOException {
         User getUser = null;
         String hashPassword = encode(password);
-        List<User> users = converter.convertData(userDao.read());
+        List<User> users = userAnalyzer.getUsers(userDao.read());
         for (User user: users){
             if(user.getEmail().equals(email) && user.getPassword().equals(hashPassword)){
                 getUser = user;
@@ -39,7 +39,7 @@ public class Authentication {
         if(validator.isValid(email)){
             String hashPassword = encode(password);
             newUser = new User(login, name, email, hashPassword, is_stuff);
-            userDao.create(newUser);
+            userAnalyzer.addUser(newUser, userDao);
         }
         return newUser;
     }
@@ -48,9 +48,10 @@ public class Authentication {
         boolean is_stuff = true;
         User admin = null;
         if(validator.isValid(email)){
+            System.out.println(1);
             String hashPassword = encode(password);
             admin = new User(login, name, email, hashPassword, is_stuff);
-            userDao.create(admin);
+            userAnalyzer.addUser(admin, userDao);
         }
         return admin;
     }

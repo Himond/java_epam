@@ -1,0 +1,37 @@
+<archive>
+	<user id="1">
+        <login>Иван</login>
+        <name>Иванов</name>
+        <email>ivan@mail.ru</email>
+        <password>2</password>
+        <is_staff>false</is_staff>
+    </user>
+	<user id="2">
+        <login>Вася</login>
+        <name>Петров</name>
+        <email>vasia@mail.ru</email>
+        <password>6</password>
+        <is_staff>false</is_staff>
+    </user>
+	<user id="3">
+        <login>Андрей</login>
+        <name>Васильев</name>
+        <email>andr@mail.ru</email>
+        <password>6</password>
+        <is_staff>false</is_staff>
+    </user>
+	<user id="4">
+		<login>lokan</login>
+		<name>Ivan</name>
+		<email>ivan646@mail.ru</email>
+		<password>827ccb0eea8a706c4c34a16891f84e7b</password>
+		<is_staff>true</is_staff>
+	</user>
+	<user id="5">
+		<login>Himon</login>
+		<name>Ihar</name>
+		<email>ihar@mail.ru</email>
+		<password>827ccb0eea8a706c4c34a16891f84e7b</password>
+		<is_staff>false</is_staff>
+	</user>
+</archive>

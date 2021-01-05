@@ -1,48 +1,29 @@
 package by.jonline.task6.task3.dao;
 
-import by.jonline.task6.task3.bean.User;
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class UserDao implements Dao<User> {
+public class UserDao implements Dao {
 
-    private File file = new File("src\\by\\jonline\\task6\\task3\\resource\\user.txt");
-
+    private File file = new File("src\\by\\jonline\\task6\\task3\\resource\\user.xml");
 
     @Override
-    public void create(User user) throws IOException {
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
-                bw.write("login:" + user.getLogin() + ",name:" + user.getName() + ",email:" + user.getEmail() +
-                        ",password:" + user.getPassword() + ",is_staff:" + user.isIs_staff() + '\n');
-
-        }catch (IOException ex){
-            throw new IOException(ex.getMessage());
-        }
-    }
-
-    @Override
-    public List<String> read() throws IOException {
-        List<String> users = new ArrayList<>();
+    public String read() throws IOException {
+        StringBuilder result = new StringBuilder();
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null){
-                users.add(line);
+                result.append(line).append("\n");
             }
         }catch (FileNotFoundException ex){
             throw new FileNotFoundException(ex.getMessage());
         }
-        return users;
+        return result.toString();
     }
 
     @Override
-    public void update(List<User> list) throws IOException {
+    public void update(String list) throws IOException {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
-            for (User user: list){
-                bw.write("login:" + user.getLogin() + ",name:" + user.getName() + ",email:" + user.getEmail() +
-                        ",password:" + user.getPassword() + ",is_staff:" + user.isIs_staff() + '\n');
-            }
+                bw.write(list);
         }catch (IOException ex){
             throw new IOException(ex.getMessage());
         }

@@ -10,12 +10,13 @@ import java.util.regex.Pattern;
 
 public class UserEmailValidator {
 
+
+    private UserAnalyzerXML analyzerXML = new UserAnalyzerXML();
     private UserDao userDao = new UserDao();
-    private UserConverter userConverter = new UserConverter();
 
     public boolean isValid(String email) throws IOException {
         boolean valid = true;
-        List<User> users = userConverter.convertData(userDao.read());
+        List<User> users = analyzerXML.getUsers(userDao.read());
 
         final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         final String EMAIL = "^" + email + "$";

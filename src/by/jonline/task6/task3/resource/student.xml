@@ -1,0 +1,23 @@
+<archive>
+	<student id="1">
+		<first_name>Вася</first_name>
+		<last_name>Петров</last_name>
+		<faculty>Автомеханический</faculty>
+		<group>6</group>
+		<progress>6 6 7 8 7</progress>
+	</student>
+	<student id="2">
+		<first_name>Андрей</first_name>
+		<last_name>Васильев</last_name>
+		<faculty>Автомеханический</faculty>
+		<group>6</group>
+		<progress>8 9 8 8 8</progress>
+	</student>
+	<student id="3">
+		<first_name>Иван</first_name>
+		<last_name>Иванов</last_name>
+		<faculty>Строительный</faculty>
+		<group>125</group>
+		<progress>7 8 8 9 6 9 9 9 9 9 9</progress>
+	</student>
+</archive>

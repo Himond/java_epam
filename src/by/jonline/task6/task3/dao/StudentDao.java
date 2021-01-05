@@ -1,30 +1,36 @@
 package by.jonline.task6.task3.dao;
 
-import by.jonline.task6.task3.bean.Student;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
+import java.io.*;
 
 
-
-public class StudentDao implements Dao<Student> {
+public class StudentDao implements Dao{
 
     private File file = new File("src\\by\\jonline\\task6\\task3\\resource\\student.xml");
 
-    @Override
-    public void create(Student student) throws IOException {
 
+    public String read() throws IOException {
+        StringBuilder result = new StringBuilder();
+        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null){
+                result.append(line).append("\n");
+            }
+        }catch (FileNotFoundException ex){
+            throw new FileNotFoundException(ex.getMessage());
+        }
+        return result.toString();
     }
 
-    @Override
-    public List<String> read() throws IOException {
-        return null;
+
+    public void update(String list) throws IOException {
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            bw.write(list);
+        }catch (IOException ex){
+            throw new IOException(ex.getMessage());
+        }
     }
 
-    @Override
-    public void update(List<Student> list) throws IOException {
 
-    }
 
 }
