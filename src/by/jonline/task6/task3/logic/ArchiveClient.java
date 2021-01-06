@@ -12,197 +12,69 @@ public class ArchiveClient {
     private User user;
     private String  message;
 
-    private static Socket clientSocket;
-    private static BufferedReader reader;
-
-    private static BufferedReader in;
-    private static BufferedWriter out;
-
-    private static ObjectInputStream inObj;
-    private static ObjectOutputStream outObj;
-
-
     public User getUser() {
         return user;
     }
 
-    public void logIn(String email, String password){
-        try {
-            try {
-                message = "login";
-                clientSocket = new Socket("localhost", 4004);
-                out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-                inObj = new ObjectInputStream(clientSocket.getInputStream());
-                out.write(message + ":" + email + ":" + password + "\n");
-                out.flush();
-
-                this.user = (User) inObj.readObject();
-
-            } finally {
-                clientSocket.close();
-                inObj.close();
-                out.close();
-            }
-        } catch (IOException | ClassNotFoundException e) {
-            System.err.println(e);
-        }
+    public void logIn(final String email, final String password) throws IOException, ClassNotFoundException {
+        message = "login";
+        user = (User)request(message + "&" + email + "&" + password + "\n");
     }
 
-    public void register(String login, String name, String email, String password){
-        try {
-            try {
-                message = "register";
-                clientSocket = new Socket("localhost", 4004);
-                out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-                inObj = new ObjectInputStream(clientSocket.getInputStream());
-                out.write(message + ":" + login + ":" + name + ":" + email + ":" + password + "\n");
-                out.flush();
-                this.user = (User) inObj.readObject();
-            } finally {
-                clientSocket.close();
-                inObj.close();
-                out.close();
-            }
-        } catch (IOException | ClassNotFoundException e) {
-            System.err.println(e);
-        }
+    public void register(final String login, final String name, final String email,final String password) throws IOException, ClassNotFoundException {
+        message = "register";
+        user = (User)request(message + "&" + login + "&" + name + "&" + email + "&" + password + "\n");
     }
 
     public void logOut(){
         this.user = null;
     }
 
-    public Student searchStudent(String first_name, String last_name){
+    public Student searchStudent(final String firstName, final String lastName) throws IOException, ClassNotFoundException {
         Student student = null;
         if (user != null){
-            try {
-                try {
-                    message = "search";
-                    clientSocket = new Socket("localhost", 4004);
-                    out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-                    inObj = new ObjectInputStream(clientSocket.getInputStream());
-                    out.write(message + ":" + first_name + ":" + last_name + "\n");
-                    out.flush();
-                    student = (Student) inObj.readObject();
-                } finally {
-                    clientSocket.close();
-                    inObj.close();
-                    out.close();
-                }
-            } catch (IOException | ClassNotFoundException e) {
-                System.err.println(e);
-            }
+            message = "search";
+            student = (Student)request(message + "&" + firstName + "&" + lastName + "\n");
         }
         return student;
     }
 
-    public void createStudent(String first_name, String last_name, String faculty, int group, List<Integer> progress){
-        if(user.isIs_staff() && user != null){
-            try {
-                try {
-                    message = "save";
-                    clientSocket = new Socket("localhost", 4004);
-
-                    out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-                    out.write(message + ":" + first_name + ":" + last_name + ":" + faculty + ":" + group
-                            + ":" + progress.toString() + "\n");
-                    out.flush();
-                } finally {
-                    clientSocket.close();
-                    out.close();
-                }
-            } catch (IOException e) {
-                System.err.println(e);
-            }
+    public void createStudent(final String firstName,final String lastName,final String faculty,final int group,final List<Integer> progress) throws IOException, ClassNotFoundException {
+        if(user.isStaff() && user != null){
+            message = "save";
+            request(message + "&" + firstName + "&" + lastName + "&" + faculty + "&" + group
+                    + "&" + progress.toString() + "\n");
         }
     }
 
-    public void saveStudent(Student student){
-        if(this.user.isIs_staff() && user != null){
-            try {
-                try {
-                    message = "save";
-                    clientSocket = new Socket("localhost", 4004);
-
-                    out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-                    out.write(message + ":" + student.getFirst_name() + ":" + student.getLast_name() + ":" + student.getFaculty() + ":" + student.getGroup_number()
-                            + ":" + student.getProgress() + "\n");
-                    out.flush();
-
-                } finally {
-                    clientSocket.close();
-                    out.close();
-                }
-            } catch (IOException e) {
-                System.err.println(e);
-            }
+    public void saveStudent(final Student student) throws IOException, ClassNotFoundException {
+        if(this.user.isStaff() && user != null){
+            message = "save";
+            request(message + "&" + student.getFirstName() + "&" + student.getLastName()
+                    + "&" + student.getFaculty() + "&" + student.getGroup_number()
+                    + "&" + student.getProgress() + "\n");
         }
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public static void main(String[] args) {
+    private Object request(String message) throws IOException, ClassNotFoundException {
+        Object obj;
         try {
-            try {
-                clientSocket = new Socket("localhost", 4004);
-                reader = new BufferedReader(new InputStreamReader(System.in));
+            try(Socket clientSocket = new Socket("localhost", 4004);
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+                ObjectInputStream inObj = new ObjectInputStream(clientSocket.getInputStream())){
 
-                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-
-                inObj = new ObjectInputStream(clientSocket.getInputStream());
-                System.out.println("Вы что-то хотели сказать? Введите это здесь:");
-
-                String word = reader.readLine();
-
-                out.write(word + "\n");
-
+                out.write(message + "\n");
                 out.flush();
-                Object o = inObj.readObject();
-                if (o.getClass() == Student.class){
-                    Student student = (Student) o;
-                    System.out.println(student);
-                }else{
-                    User user = (User) o;
-                    System.out.println(user);
-                }
+                obj = inObj.readObject();
 
-                //String serverWord = in.readLine();
-
-            } finally {
-                System.out.println("Клиент был закрыт...");
-                clientSocket.close();
-                in.close();
-                out.close();
             }
-        } catch (IOException | ClassNotFoundException e) {
-            System.err.println(e);
+        } catch (IOException e) {
+            throw new IOException(e.getMessage());
+        }catch (ClassNotFoundException e){
+            throw new ClassNotFoundException(e.getMessage());
         }
-
+        return obj;
     }
 
 }

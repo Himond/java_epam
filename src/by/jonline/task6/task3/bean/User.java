@@ -19,17 +19,17 @@ public class User implements Serializable {
     private String name;
     private String email;
     private String password;
-    private boolean is_staff;
+    private boolean isStaff;
 
     public User() {
     }
 
-    public User(String login, String name, String email, String password, boolean is_staff) {
+    public User(String login, String name, String email, String password, boolean isStaff) {
         this.login = login;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.is_staff = is_staff;
+        this.isStaff = isStaff;
     }
 
     public String getLogin() {
@@ -64,12 +64,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public boolean isIs_staff() {
-        return is_staff;
+    public boolean isStaff() {
+        return isStaff;
     }
 
-    public void setIs_staff(boolean is_staff) {
-        this.is_staff = is_staff;
+    public void setStaff(boolean isStaff) {
+        this.isStaff = isStaff;
     }
 
     @Override
@@ -77,12 +77,12 @@ public class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return is_staff == user.is_staff && Objects.equals(login, user.login) && Objects.equals(name, user.name) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
+        return isStaff == user.isStaff && Objects.equals(login, user.login) && Objects.equals(name, user.name) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(login, name, email, password, is_staff);
+        return Objects.hash(login, name, email, password, isStaff);
     }
 
     @Override
@@ -92,7 +92,7 @@ public class User implements Serializable {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", is_staff=" + is_staff +
+                ", isStaff=" + isStaff +
                 '}';
     }
 }

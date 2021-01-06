@@ -62,8 +62,8 @@ public class StudentAnalyzerXML {
                 group = Integer.parseInt(matcher.group(1));
             }
 
-            newStud.setFirst_name(f_name);
-            newStud.setLast_name(l_name);
+            newStud.setFirstName(f_name);
+            newStud.setLastName(l_name);
             newStud.setFaculty(faculty);
             newStud.setGroup_number(group);
 
@@ -152,8 +152,8 @@ public class StudentAnalyzerXML {
     private String createStringStudent(Student student, int id){
         StringBuilder newStudent = new StringBuilder();
         newStudent.append("\t").append("<student id=\"").append(id).append("\">").append("\n");
-        newStudent.append("\t\t").append("<first_name>").append(student.getFirst_name()).append("</first_name>").append("\n");
-        newStudent.append("\t\t").append("<last_name>").append(student.getLast_name()).append("</last_name>").append("\n");
+        newStudent.append("\t\t").append("<first_name>").append(student.getFirstName()).append("</first_name>").append("\n");
+        newStudent.append("\t\t").append("<last_name>").append(student.getLastName()).append("</last_name>").append("\n");
         newStudent.append("\t\t").append("<faculty>").append(student.getFaculty()).append("</faculty>").append("\n");
         newStudent.append("\t\t").append("<group>").append(student.getGroup_number()).append("</group>").append("\n");
         newStudent.append("\t\t").append("<progress>");

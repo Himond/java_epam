@@ -19,8 +19,8 @@ public class Student implements Serializable, Comparable<Student> {
 
     private static final long serialVersionUID = 1L;
 
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private String faculty;
     private int group_number;
     private List<Integer> progress;
@@ -33,8 +33,8 @@ public class Student implements Serializable, Comparable<Student> {
     }
 
     public Student(String first_name, String last_name, String faculty, int group_number) {
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = first_name;
+        this.lastName = last_name;
         this.faculty = faculty;
         this.group_number = group_number;
     }
@@ -43,20 +43,20 @@ public class Student implements Serializable, Comparable<Student> {
         return serialVersionUID;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getFaculty() {
@@ -96,7 +96,7 @@ public class Student implements Serializable, Comparable<Student> {
             }else if(group_number > o.getGroup_number()){
                 result = 1;
             }else {
-                result = last_name.compareTo(o.getLast_name());
+                result = lastName.compareTo(o.getLastName());
             }
         }
         return result;
@@ -107,19 +107,19 @@ public class Student implements Serializable, Comparable<Student> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return group_number == student.group_number && Objects.equals(first_name, student.first_name) && Objects.equals(last_name, student.last_name) && Objects.equals(faculty, student.faculty) && Objects.equals(progress, student.progress);
+        return group_number == student.group_number && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && Objects.equals(faculty, student.faculty) && Objects.equals(progress, student.progress);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(first_name, last_name, faculty, group_number, progress);
+        return Objects.hash(firstName, lastName, faculty, group_number, progress);
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
+                "first_name='" + firstName + '\'' +
+                ", last_name='" + lastName + '\'' +
                 ", faculty='" + faculty + '\'' +
                 ", group_number=" + group_number +
                 ", progress=" + progress +

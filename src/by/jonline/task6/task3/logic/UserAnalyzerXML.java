@@ -73,7 +73,7 @@ public class UserAnalyzerXML {
             newUser.setName(name);
             newUser.setEmail(email);
             newUser.setPassword(password);
-            newUser.setIs_staff(Boolean.parseBoolean(is_staff));
+            newUser.setStaff(Boolean.parseBoolean(is_staff));
 
             users.add(newUser);
         }
@@ -117,7 +117,7 @@ public class UserAnalyzerXML {
         newUser.append("\t\t").append("<name>").append(user.getName()).append("</name>").append("\n");
         newUser.append("\t\t").append("<email>").append(user.getEmail()).append("</email>").append("\n");
         newUser.append("\t\t").append("<password>").append(user.getPassword()).append("</password>").append("\n");
-        newUser.append("\t\t").append("<is_staff>").append(user.isIs_staff()).append("</is_staff>").append("\n");
+        newUser.append("\t\t").append("<is_staff>").append(user.isStaff()).append("</is_staff>").append("\n");
         newUser.append("\t").append("</user>").append("\n");
         return newUser.toString();
     }

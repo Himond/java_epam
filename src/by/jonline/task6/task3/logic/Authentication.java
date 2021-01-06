@@ -20,7 +20,7 @@ public class Authentication {
     public Authentication() throws NoSuchAlgorithmException {
     }
 
-    public User logIn(String email, String password) throws IOException {
+    public User logIn(final String email, String password) throws IOException {
         User getUser = null;
         String hashPassword = encode(password);
         List<User> users = userAnalyzer.getUsers(userDao.read());
@@ -34,23 +34,22 @@ public class Authentication {
     }
 
     public User register(String login, String name, String email, String password) throws IOException {
-        boolean is_stuff = false;
+        boolean isStuff = false;
         User newUser = null;
         if(validator.isValid(email)){
             String hashPassword = encode(password);
-            newUser = new User(login, name, email, hashPassword, is_stuff);
+            newUser = new User(login, name, email, hashPassword, isStuff);
             userAnalyzer.addUser(newUser, userDao);
         }
         return newUser;
     }
 
     public User registerAsAdmin(String login, String name, String email, String password) throws IOException {
-        boolean is_stuff = true;
+        boolean isStuff = true;
         User admin = null;
         if(validator.isValid(email)){
-            System.out.println(1);
             String hashPassword = encode(password);
-            admin = new User(login, name, email, hashPassword, is_stuff);
+            admin = new User(login, name, email, hashPassword, isStuff);
             userAnalyzer.addUser(admin, userDao);
         }
         return admin;
