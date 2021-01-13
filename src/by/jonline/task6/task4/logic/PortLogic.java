@@ -24,8 +24,6 @@ public class PortLogic{
         return port.getShips();
     }
 
-
-
     //взять корабль в порту для загрузки/выгрузки
     public synchronized Ship getShip(){
         Ship ship = null;

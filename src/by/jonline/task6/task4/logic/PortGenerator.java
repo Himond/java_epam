@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class PortGenerator{
 
-    private int shipCount;
+    private final int shipCount;
     private int numShip = 1;
 
 
