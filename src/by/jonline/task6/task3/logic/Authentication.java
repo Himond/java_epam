@@ -12,10 +12,10 @@ import java.util.List;
 public class Authentication {
 
     private final MessageDigest md5 = MessageDigest.getInstance("MD5");
-    private UserEmailValidator validator = new UserEmailValidator();
+    private final UserEmailValidator validator = new UserEmailValidator();
 
-    private UserAnalyzerXML userAnalyzer = new UserAnalyzerXML();
-    private UserDao userDao = new UserDao();
+    private final UserAnalyzerXML userAnalyzer = new UserAnalyzerXML();
+    private final UserDao userDao = new UserDao();
 
     public Authentication() throws NoSuchAlgorithmException {
     }
@@ -34,22 +34,20 @@ public class Authentication {
     }
 
     public User register(String login, String name, String email, String password) throws IOException {
-        boolean isStuff = false;
         User newUser = null;
         if(validator.isValid(email)){
             String hashPassword = encode(password);
-            newUser = new User(login, name, email, hashPassword, isStuff);
+            newUser = new User(login, name, email, hashPassword, false);
             userAnalyzer.addUser(newUser, userDao);
         }
         return newUser;
     }
 
     public User registerAsAdmin(String login, String name, String email, String password) throws IOException {
-        boolean isStuff = true;
         User admin = null;
         if(validator.isValid(email)){
             String hashPassword = encode(password);
-            admin = new User(login, name, email, hashPassword, isStuff);
+            admin = new User(login, name, email, hashPassword, true);
             userAnalyzer.addUser(admin, userDao);
         }
         return admin;

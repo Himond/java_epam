@@ -4,7 +4,7 @@ import java.io.*;
 
 public class UserDao implements Dao {
 
-    private File file = new File("src\\by\\jonline\\task6\\task3\\resource\\user.xml");
+    private final File file = new File("src\\by\\jonline\\task6\\task3\\resource\\user.xml");
 
     @Override
     public String read() throws IOException {

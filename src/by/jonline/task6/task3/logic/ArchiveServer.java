@@ -15,8 +15,8 @@ public class ArchiveServer {
 
     private static ServerSocket server;
     private static Authentication authentication;
-    private static StudentDao studentDao = new StudentDao();
-    private static StudentAnalyzerXML studentAnalyzer = new StudentAnalyzerXML();
+    private static final StudentDao studentDao = new StudentDao();
+    private static final StudentAnalyzerXML studentAnalyzer = new StudentAnalyzerXML();
 
     static {
         try {

@@ -6,7 +6,7 @@ import java.io.*;
 
 public class StudentDao implements Dao{
 
-    private File file = new File("src\\by\\jonline\\task6\\task3\\resource\\student.xml");
+    private final File file = new File("src\\by\\jonline\\task6\\task3\\resource\\student.xml");
 
 
     public String read() throws IOException {
